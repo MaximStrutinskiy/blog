@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {#add meta tegs#}
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        {% block meta %}{% endblock %}
+
+        {#add title#}
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        {#add styles#}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/assets/lib/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/assets/lib/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/assets/css/main.min.css') }}">
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+        {#add contents#}
         {% block body %}{% endblock %}
+
+        {#add scripts#}
+        <script src="{{ asset('assets/assets/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/assets/lib/jquery/jquery-1.11.2.min.js') }}"></script>
+        <script src="{{ asset('assets/assets/js/main.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
+
     </body>
 </html>
