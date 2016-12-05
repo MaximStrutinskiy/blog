@@ -1,4 +1,4 @@
-<div id="index-header" class="index-header">
+<div id="info-header" class="info-header">
     <div class="container-susy">
 
         <div class="i-header-menu">
@@ -6,7 +6,7 @@
                 <img src="{{ asset('assets/assets/img/webfish-logo.png') }}" alt="webfish logotype">
             </div>
             <div class="ih-menu-right">
-                {% include 'BlogBundle:Components:_menu-list-index.html.twig' %}
+                {% include 'BlogBundle:Components/_menu:_info-menu-list.html.twig' %}
                 <div class="toogle">
                     <a href="#" id="toogle" class="menu-toogle"><span></span></a>
                 </div>
@@ -15,11 +15,14 @@
 
         <div class="i-header-content">
             <div class="ihtc-table">
-                <h1>Creation simple blog</h1>
-                <p>It is an open source product designed to improve programming skills using framework <a href="http://symfony.com/" target="_blank">Simfony3</a></p>
-                <a href="#" class="grey-button">Learn More</a>
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="{{ path('blog_homepage') }}">Home</a></li>
+                        <li><p>/</p></li>
+                        <li><p>Info</p></li>
+                    </ul>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

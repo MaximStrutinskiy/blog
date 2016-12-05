@@ -20,7 +20,7 @@ gulp.task('img', function () {
 
 //js
 gulp.task('js', function () {
-  return gulp.src('web/assets/src/js/*.js')
+  return gulp.src('web/assets/src/js/**/*.js')
     .pipe(jsmin())
     .pipe(jshint())
     .pipe(jshint.reporter('default'))

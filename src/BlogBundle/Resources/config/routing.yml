@@ -1,3 +1,11 @@
 blog_homepage:
     path:     /
     defaults: { _controller: BlogBundle:Blog:index }
+
+contact:
+    path:     /contact
+    defaults: { _controller: BlogBundle:Info:contact }
+
+info:
+    path:     /info
+    defaults: { _controller: BlogBundle:Info:info }

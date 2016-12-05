@@ -1,0 +1,61 @@
+//style for all articles
+.redactor{
+  padding: 25px 0;
+
+  .c-section{
+    padding: 10px 0;
+    padding-bottom: 0;
+  }
+
+  .t-c{
+    text-align: center;
+  }
+
+  .bg-g{
+    background: $grey-bg;
+  }
+
+  .h1-c{
+    padding: 10px 0;
+    text-transform: uppercase;
+    color: $black-text;
+    font-size: 18px;
+    margin: 0;
+    font-family: $m-regular;
+
+    span{
+      font-size:13px;
+      color: $grey-text;
+      text-transform: initial;
+      font-family: $lato;
+    }
+  }
+
+  .p-c{
+    font-size: 13px;
+    font-weight: 300;
+    color: $grey-text;
+    font-family: $m-light;
+  }
+
+  .ul-c{
+    padding-left: 10px;
+    
+    li{
+      font-family: $m-regular;
+    }
+    
+    a{
+      color: $green;
+    }
+    
+    .in-progress{
+      color: $orange;
+    }
+
+    .no-work{
+      color: $red;
+    }
+    
+  }
+}
