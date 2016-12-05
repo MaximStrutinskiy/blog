@@ -1,55 +1,53 @@
-$(document).ready(function(){
+$(function(){
+    $(document).ready(function(){
 
-    //Function - Index homepage min-height
-    function minHeight(tag){
-        $hwd = $(window).height(); //height screen device
-        $sh = $(tag);              //section bark need min-height
-        $sh.css('min-height',$hwd);
-    }
+        //Function - Index homepage min-height
+        function minHeight(tag){
+            $hwd = $(window).height(); //height screen device
+            $sh = $(tag);              //section bark need min-height
+            $sh.css('min-height',$hwd);
+        }
 
-    //Toogle menu button
-    function toogleButton() {
-        $toogle = $('#toogle');
-        $toogleDiv = $('.mobile-bg');
-
-        $toogle.on('click', function(){
-
-            if(this.classList.contains('active')){
-                this.classList.remove('active');
-
-                $toogleDiv.remove();
-            }else {
-                this.classList.add('active');
-
-                //add mobile menu
-                $div = '<div class="mobile-bg"></div>';
-                $('body').prepend($div);
+        //mmenu
+        $('#index-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+        $("#mobile-menu").find('*').attr('style', '');
+        $("#mobile-menu").children("ul").removeClass('.menu-list')
+            .parent().mmenu({
+            extensions : [ 'widescreen', 'theme-white', 'effect-menu-slide', 'pagedim-black', 'theme-dark' ],
+            navbar: {
+                title: "Menu."
             }
         });
 
-        $toogleDiv.on('click', function(){
-            $toogleDiv.remove();
-            $toogle.classList.remove('active');
+        var api = $('#mobile-menu').data("mmenu");
+
+        $("#toogle").click(function() {
+            $(this).removeClass('active');
+            api.open();
         });
 
-    }
+        api.bind("closed", function () {
+            $('#toogle').removeClass('active');
+        });
 
-    // $('.mobile-bg').on('click', function(){
-    //     $('#toogle').removeClass('active');
-    //     $('.mobile-bg').remove();
-    // });
+        //Toogle menu button
+        function toogleButton() {
+            $toogle = $('#toogle');
 
-    //Run functions
-    minHeight('#index-header');
-    toogleButton();
+            $toogle.on('click', function(){
+                $(this).toggleClass('active');
+            });
+        }
 
-
-
-    $(window).resize(function () {
+        //Run functions
         minHeight('#index-header');
-        $('#toogle').removeClass('active');
-        $('.mobile-bg').remove();
+        toogleButton();
+
+        $(window).resize(function () {
+            minHeight('#index-header');
+            $('#toogle').removeClass('active');
+            api.close();
+
+        });
     });
-
-
 });

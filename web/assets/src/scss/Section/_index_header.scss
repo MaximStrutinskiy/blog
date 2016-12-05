@@ -2,7 +2,6 @@
   background: url('../img/home-bg.png') no-repeat center center fixed;
   background-size: cover;
   position: relative;
-  min-height: 720px;//test property
 
   //  header menu
   .i-header-menu{
@@ -165,11 +164,21 @@
   }
 }
 
-.mobile-bg{
-  background-color: rgba(0, 0, 0, .75);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  cursor: pointer;
+
+#mobile-menu{
+  z-index: 20;
+  background: $black-text;
+  color: $whit;
+  font-family: $m-regular;
+  border-color: $grey-light;
+  
+  .mm-title{
+    color: $whit;
+    font-family: $m-regular;
+  }
+
+  .mm-listview > li:not(.mm-divider):after{
+    right: 20px;
+    border-color: $grey-light;
+  }
 }
