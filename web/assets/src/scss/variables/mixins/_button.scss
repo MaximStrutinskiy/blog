@@ -1,0 +1,13 @@
+@mixin grey-button(){
+  color: $black-text;
+  border: rem(1px) solid $black-text;
+  border-radius: rem(50px);
+  padding: rem(20px) rem(75px);
+  
+  &:hover{
+    text-decoration: none;
+    color: $whit;
+    background: $green;
+    border-color: $green;
+  }
+}

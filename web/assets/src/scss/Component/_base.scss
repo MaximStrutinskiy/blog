@@ -1,3 +1,7 @@
 .container-susy{
   @include page-container();
 }
+
+body{
+  overflow-x: hidden;
+}

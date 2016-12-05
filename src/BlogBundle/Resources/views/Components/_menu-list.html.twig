@@ -1,9 +1,10 @@
 {# This template used in Footer and MainMenu if you need extend them - use [block menu_link], and add you custom links #}
 
 <ul class="menu-list">
-    <li><a href="#">Home</a></li>
+    <li><a href="{{ path('blog_homepage') }}">Home</a></li>
     <li><a href="#">Blog</a></li>
-    {% block menu_link %}{% endblock %}
-    <li><a href="#">Contact</a></li>
+    <li><a href="">Contact</a></li>
+    {% block menu_link %}
+    {% endblock %}
     <li><a href="https://github.com/MaximStrutinskiy/GeekHub-Blog" target="_blank">GitHub</a></li>
 </ul>
