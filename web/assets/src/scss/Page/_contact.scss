@@ -3,6 +3,65 @@
   .contact-info{
     padding-top: rem(70px);
     padding-bottom: rem(85px);
+
+    input,
+    textarea{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $green;
+      font-family: $m-regular;
+    }
+
+    label{
+      font-family: $m-light;
+      font-size: 12px;
+    }
+
+    textarea{
+      min-height: 200px;
+    }
+
+    .contacts-form{
+      padding: 25px 0;
+
+      .input-name{
+        @include span( 6 of 12 );
+      }
+
+      .input-phone{
+        @include span( last 6 of 12 );
+      }
+
+      @include susy-breakpoint(0 561px){
+        .input-phone,
+        .input-name{
+          @include span (12 of 12);
+        }
+      }
+
+      .input-text{
+        @include span( 12 of 12 );
+      }
+
+      .form-buttons{
+        @include span( 12 of 12 );
+      }
+
+      form div{
+        padding-bottom: 10px;
+      }
+
+      .form-buttons{
+
+        div{
+          display: inline-block;
+
+          button{
+            @include green-button();
+          }
+        }
+      }
+    }
   }
 
   #google-map{

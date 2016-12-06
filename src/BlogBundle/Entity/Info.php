@@ -11,7 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="info")
  * @ORM\Entity()
  **/
-
 class Info
 {
     /**

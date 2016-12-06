@@ -10,9 +10,21 @@
     <div class="contact-section">
 
         <div class="container-susy">
-            <div class="contact-info">
-                {{ form(form_info) }}
-                {{ dump(form_info)}}
+            <div class="contact-info clearfix">
+                <div class="contacts-header">
+                    <h2>Contacts</h2>
+                    <p>In this page you can see all contacts and send our administration message.</p>
+                </div>
+
+                <div class="contacts-form clearfix">
+                    {{ form_start(form_info) }}
+                        <div class="input-name">{{ form_row(form_info.name) }}</div>
+                        <div class="input-phone">{{ form_row(form_info.phone) }}</div>
+                        <div class="input-text">{{ form_row(form_info.message) }}</div>
+                        <div class="form-buttons">{{ form_row(form_info.send) }} {{ form_row(form_info.clean) }}</div>
+                    {{ form_end(form_info) }}
+                </div>
+
             </div>
         </div>
 
