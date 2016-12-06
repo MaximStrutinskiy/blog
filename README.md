@@ -16,6 +16,8 @@
 ```
 - $php bin/symfony_requirements - check project settings.
 - $php bin/console generate:bundle - create bundle.
+- $php bin/console doctrine:generate:entities BlogBundle/Entity/Info - generate get/set.
+- $php bin/console doctrine:schema:update --force - update database 
 ```
 ---
 
@@ -34,4 +36,5 @@
 10) Setting cookies - http://symfony.com/doc/current/components/http_foundation.html#setting-cookies
 11) Redirect in config - http://symfony.com/doc/current/routing/redirect_in_config.html
 12) Twig - http://twig.sensiolabs.org/
+13) GitHub Gists - https://gist.github.com/MaximStrutinskiy
 ```

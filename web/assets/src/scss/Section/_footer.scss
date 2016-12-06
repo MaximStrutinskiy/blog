@@ -3,8 +3,8 @@
 
   //footer-top
   .footer-top{
-    padding-top: rem(145px);
-    padding-bottom: rem(170px);
+    padding-top: rem(70px);
+    padding-bottom: rem(85px);
     @include clearfix;
 
     @include susy-breakpoint(0 768px){
@@ -93,6 +93,7 @@
 
     img{
       vertical-align: top;
+      display: block;
     }
   }
 
