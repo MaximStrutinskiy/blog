@@ -15,6 +15,10 @@
     background: $grey-bg;
   }
 
+  a{
+    color: $green;
+  }
+
   .h1-c{
     padding: 10px 0;
     text-transform: uppercase;
@@ -34,7 +38,7 @@
   .p-c{
     font-size: 13px;
     font-weight: 300;
-    color: $grey-text;
+    color: $black-text;;
     font-family: $m-light;
   }
 
@@ -42,11 +46,7 @@
     padding-left: 10px;
     
     li{
-      font-family: $m-regular;
-    }
-    
-    a{
-      color: $green;
+      font-family: $m-light;
     }
     
     .in-progress{

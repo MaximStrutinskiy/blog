@@ -53,4 +53,4 @@ gulp.task('watch', function () {
 });
 
 // default
-gulp.task('run', ['sass', 'js', 'img', 'watch']);
+gulp.task('default', ['sass', 'js', 'img', 'watch']);
