@@ -3,7 +3,7 @@
 
         <div class="i-header-menu">
             <div class="ih-menu-left">
-                <img src="{{ asset('assets/assets/img/webfish-logo.png') }}" alt="webfish logotype">
+                <a href="{{ path('blog_homepage') }}"><img src="{{ asset('assets/assets/img/webfish-logo.png') }}" alt="webfish logotype"></a>
             </div>
             <div class="ih-menu-right">
                 {% include 'BlogBundle:Components/_menu:_index-menu-list.html.twig' %}
