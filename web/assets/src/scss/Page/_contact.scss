@@ -59,6 +59,10 @@
 		  button {
 			@include green-button();
 		  }
+
+		  button.active{
+			@include green-button-active();
+		  }
 		}
 	  }
 	}

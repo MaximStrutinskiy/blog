@@ -21,7 +21,13 @@ class FormInfo extends AbstractType
         $builder->add('name')
             ->add('phone')
             ->add('message')
-            ->add('send', SubmitType::class)
+            ->add(
+                'send',
+                SubmitType::class,
+                array(
+                    'attr' => array('class' => 'active'),
+                )
+            )
             ->add('clean', ResetType::class);
     }
 
