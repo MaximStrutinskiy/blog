@@ -1,62 +1,62 @@
 //style for all articles
-.redactor{
+.redactor {
   padding-top: rem(70px);
   padding-bottom: rem(85px);
 
-  .c-section{
-    padding: 10px 0;
-    padding-bottom: 0;
+  .c-section {
+	padding: 10px 0;
+	padding-bottom: 0;
   }
 
-  .t-c{
-    text-align: center;
+  .t-c {
+	text-align: center;
   }
 
-  .bg-g{
-    background: $grey-bg;
+  .bg-g {
+	background: $grey-bg;
   }
 
-  a{
-    color: $green;
+  a {
+	color: $green;
   }
 
-  .h1-c{
-    padding: 10px 0;
-    text-transform: uppercase;
-    color: $black-text;
-    font-size: 18px;
-    margin: 0;
-    font-family: $m-regular;
+  .h1-c {
+	padding: 10px 0;
+	text-transform: uppercase;
+	color: $black-text;
+	font-size: 18px;
+	margin: 0;
+	font-family: $m-regular;
 
-    span{
-      font-size:13px;
-      color: $grey-text;
-      text-transform: initial;
-      font-family: $lato;
-    }
+	span {
+	  font-size: 13px;
+	  color: $grey-text;
+	  text-transform: initial;
+	  font-family: $lato;
+	}
   }
 
-  .p-c{
-    font-size: 13px;
-    font-weight: 300;
-    color: $black-text;;
-    font-family: $m-light;
+  .p-c {
+	font-size: 13px;
+	font-weight: 300;
+	color: $black-text;;
+	font-family: $m-light;
   }
 
-  .ul-c{
-    padding-left: 10px;
-    
-    li{
-      font-family: $m-light;
-    }
-    
-    .in-progress{
-      color: $orange;
-    }
+  .ul-c {
+	padding-left: 10px;
 
-    .no-work{
-      color: $red;
-    }
-    
+	li {
+	  font-family: $m-light;
+	}
+
+	.in-progress {
+	  color: $orange;
+	}
+
+	.no-work {
+	  color: $red;
+	}
+
   }
 }

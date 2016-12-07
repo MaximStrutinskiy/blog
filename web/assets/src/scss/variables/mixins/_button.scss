@@ -1,18 +1,18 @@
-@mixin grey-button(){
+@mixin grey-button() {
   color: $black-text;
   border: rem(1px) solid $black-text;
   border-radius: rem(50px);
   padding: rem(20px) rem(75px);
-  
-  &:hover{
-    text-decoration: none;
-    color: $whit;
-    background: $green;
-    border-color: $green;
+
+  &:hover {
+	text-decoration: none;
+	color: $whit;
+	background: $green;
+	border-color: $green;
   }
 }
 
-@mixin green-button(){
+@mixin green-button() {
   color: $green;
   background: inherit;
   display: inline-block;
@@ -20,9 +20,9 @@
   font-size: 16px;
   border: 1px solid $green;
   padding: 10px 25px;
-  
-  &:hover{
-    background: $green;
-    color: $whit;
+
+  &:hover {
+	background: $green;
+	color: $whit;
   }
 }

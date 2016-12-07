@@ -13,22 +13,26 @@ class InfoController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function contactAction( Request $request)
+    public function contactAction(Request $request)
     {
         $info = new Info();
-        $form = $this->createForm( FormInfo::class, $info);
+        $form = $this->createForm(FormInfo::class, $info);
 
         $form->handleRequest($request);
-        if( $form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($info);
             $em->flush();
+
             return $this->redirectToRoute('contact');
         }
 
-        return $this->render('BlogBundle:Page:contact.html.twig', [
-            'form_info' => $form->createView()
-        ]);
+        return $this->render(
+            'BlogBundle:Page:contact.html.twig',
+            [
+                'form_info' => $form->createView(),
+            ]
+        );
     }
 
     /**

@@ -1,175 +1,175 @@
-.footer{
+.footer {
   background: $grey-bg;
 
   //footer-top
-  .footer-top{
-    padding-top: rem(70px);
-    padding-bottom: rem(85px);
-    @include clearfix;
+  .footer-top {
+	padding-top: rem(70px);
+	padding-bottom: rem(85px);
+	@include clearfix;
 
-    @include susy-breakpoint(0 768px){
-      padding-bottom: rem(85px);
-    }
+	@include susy-breakpoint(0 768px) {
+	  padding-bottom: rem(85px);
+	}
   }
 
-  .footer-description{
-    @include span (7 of 12);
-    @include suffix(4 of 12);
+  .footer-description {
+	@include span (7 of 12);
+	@include suffix(4 of 12);
   }
 
-  .footer-contacts{
-    @include span (3 of 12);
-    .footer-content {
+  .footer-contacts {
+	@include span (3 of 12);
+	.footer-content {
 
-      p{
-        padding-left: 18px;
-      }
-    }
+	  p {
+		padding-left: 18px;
+	  }
+	}
   }
 
-  .footer-links{
-    @include span (last 2 of 12);
+  .footer-links {
+	@include span (last 2 of 12);
   }
 
-  @include susy-breakpoint(768px 1111px){
-    .footer-description{
-      @include span (5 of 12);
-      @include suffix(1.5 of 12);
-    }
+  @include susy-breakpoint(768px 1111px) {
+	.footer-description {
+	  @include span (5 of 12);
+	  @include suffix(1.5 of 12);
+	}
 
-    .footer-contacts{
-      @include span (4 of 12);
-    }
+	.footer-contacts {
+	  @include span (4 of 12);
+	}
 
-    .footer-links{
-      @include span (last 3 of 12);
-    }
+	.footer-links {
+	  @include span (last 3 of 12);
+	}
   }
 
-  @include susy-breakpoint(0 768px){
-    .footer-description{
-      @include span (12 of 12);
-      @include suffix(0 of 12);
-      padding-bottom: rem(50px);
-      text-align: center;
-    }
+  @include susy-breakpoint(0 768px) {
+	.footer-description {
+	  @include span (12 of 12);
+	  @include suffix(0 of 12);
+	  padding-bottom: rem(50px);
+	  text-align: center;
+	}
 
-    .footer-contacts{
-      @include span (6 of 12);
-      text-align: center;
-    }
+	.footer-contacts {
+	  @include span (6 of 12);
+	  text-align: center;
+	}
 
-    .footer-links{
-      @include span (last 6 of 12);
-      text-align: center;
-    }
+	.footer-links {
+	  @include span (last 6 of 12);
+	  text-align: center;
+	}
   }
 
-  @include susy-breakpoint(0 561px){
+  @include susy-breakpoint(0 561px) {
 
-    .footer-contacts{
-      @include span (12 of 12);
-      padding-bottom: rem(50px);
-    }
+	.footer-contacts {
+	  @include span (12 of 12);
+	  padding-bottom: rem(50px);
+	}
 
-    .footer-links{
-      @include span (12 of 12);
-      padding-bottom: rem(50px);
-    }
+	.footer-links {
+	  @include span (12 of 12);
+	  padding-bottom: rem(50px);
+	}
   }
 
-  .footer-title{
-    padding-bottom: rem(45px);
+  .footer-title {
+	padding-bottom: rem(45px);
 
-    p{
-      color: $black-text;
-      font-family: $m-light;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: rem(22px);
-      text-transform: uppercase;
-      margin-bottom: 0;
-    }
+	p {
+	  color: $black-text;
+	  font-family: $m-light;
+	  font-size: 16px;
+	  font-weight: 400;
+	  line-height: rem(22px);
+	  text-transform: uppercase;
+	  margin-bottom: 0;
+	}
 
-    img{
-      vertical-align: top;
-      display: block;
-    }
+	img {
+	  vertical-align: top;
+	  display: block;
+	}
   }
 
-  .footer-content{
+  .footer-content {
 
-    p,
-    a{
-      color: $grey-text;
-      font-family: $m-light;
-      font-size: 14px;
-      font-weight: 300;
-      line-height: rem(36px);
-      margin-bottom: 0;
-    }
+	p,
+	a {
+	  color: $grey-text;
+	  font-family: $m-light;
+	  font-size: 14px;
+	  font-weight: 300;
+	  line-height: rem(36px);
+	  margin-bottom: 0;
+	}
 
-    i{
-      text-align: center;
-      color: $grey-text;
-      width: 14px;
-      font-size: 18px;
-    }
+	i {
+	  text-align: center;
+	  color: $grey-text;
+	  width: 14px;
+	  font-size: 18px;
+	}
 
-    li{
-      padding-bottom: 13px;
-    }
+	li {
+	  padding-bottom: 13px;
+	}
 
-    i,
-    p{
-      display: inline-block;
-    }
+	i,
+	p {
+	  display: inline-block;
+	}
 
-    a:hover{
-      color: $green;
-    }
+	a:hover {
+	  color: $green;
+	}
   }
 
   //footer-bottom
-  .footer-bottom{
-    padding: rem(50px) 0;
-    border-top: rem(1px) solid $grey-light;
+  .footer-bottom {
+	padding: rem(50px) 0;
+	border-top: rem(1px) solid $grey-light;
   }
 
-  .footer-left{
-    @include span(6 of 12);
+  .footer-left {
+	@include span(6 of 12);
 
-    li{
-      display: inline-block;
-      margin-right: rem(15px);
-    }
+	li {
+	  display: inline-block;
+	  margin-right: rem(15px);
+	}
   }
 
-  .footer-right{
-    @include span(last 6 of 12);
-    text-align: right;
+  .footer-right {
+	@include span(last 6 of 12);
+	text-align: right;
 
-    p{
-      margin-bottom: 0;
-      color: $black-text;
-      font-family: $m-light;
-      font-size: 9px;
-      font-weight: 400;
-      line-height: 14px;
-      text-transform: uppercase;
-    }
+	p {
+	  margin-bottom: 0;
+	  color: $black-text;
+	  font-family: $m-light;
+	  font-size: 9px;
+	  font-weight: 400;
+	  line-height: 14px;
+	  text-transform: uppercase;
+	}
   }
 
-  @include susy-breakpoint(0 464px){
-    .footer-left {
-      @include span(12 of 12);
-      padding-bottom: rem(50px);
-      text-align: center;
-    }
+  @include susy-breakpoint(0 464px) {
+	.footer-left {
+	  @include span(12 of 12);
+	  padding-bottom: rem(50px);
+	  text-align: center;
+	}
 
-    .footer-right {
-      @include span(12 of 12);
-      text-align: center;
-    }
+	.footer-right {
+	  @include span(12 of 12);
+	  text-align: center;
+	}
   }
 }

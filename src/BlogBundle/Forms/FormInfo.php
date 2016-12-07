@@ -22,8 +22,7 @@ class FormInfo extends AbstractType
             ->add('phone')
             ->add('message')
             ->add('send', SubmitType::class)
-            ->add('clean', ResetType::class)
-        ;
+            ->add('clean', ResetType::class);
     }
 
     /**
@@ -31,9 +30,11 @@ class FormInfo extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => 'BlogBundle\Entity\Info'
-        ]);
+        $resolver->setDefaults(
+            [
+                'data_class' => 'BlogBundle\Entity\Info',
+            ]
+        );
     }
 
 }
