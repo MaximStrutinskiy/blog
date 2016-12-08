@@ -17,7 +17,8 @@
 - $php bin/symfony_requirements - check project settings.
 - $php bin/console generate:bundle - create bundle.
 - $php bin/console doctrine:generate:entities BlogBundle/Entity/Info - generate get/set.
-- $php bin/console doctrine:schema:update --force - update database 
+- $php bin/console doctrine:schema:update --force - update database
+- $composer require friendsofsymfony/user-bundle "~2.0@dev" - install FOSUserBundle
 ```
 ---
 
