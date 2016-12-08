@@ -10,4 +10,9 @@ class BlogController extends Controller
     {
         return $this->render('BlogBundle:Page:index.html.twig');
     }
+
+    public function homeAction()
+    {
+        return $this->render('BlogBundle:Page:blog.html.twig');
+    }
 }

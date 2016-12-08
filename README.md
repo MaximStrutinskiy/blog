@@ -38,4 +38,6 @@
 12) Twig - http://twig.sensiolabs.org/
 13) GitHub Gists - https://gist.github.com/MaximStrutinskiy
 14) Formf - http://symfony.com/doc/current/reference/forms/types/form.html
+15) FOSUserBundle - http://symfony.com/doc/current/bundles/FOSUserBundle/index.html
+16)
 ```

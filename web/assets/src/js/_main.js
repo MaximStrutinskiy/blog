@@ -17,7 +17,9 @@ $(function () {
 		//mmenu
 		//for index-page
 		$('#index-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		//for info-page
 		$('#info-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		//for contact-page
 		$('#contact-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
 
 		$("#mobile-menu").children("ul").removeClass('.menu-list')
@@ -27,7 +29,6 @@ $(function () {
 				title: "Menu."
 			}
 		});
-		//for index-page
 
 		var api = $('#mobile-menu').data("mmenu");
 
