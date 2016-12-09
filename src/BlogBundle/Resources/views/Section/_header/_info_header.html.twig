@@ -3,10 +3,10 @@
 
         <div class="i-header-menu">
             <div class="ih-menu-left">
-                <a href="{{ path('blog_homepage') }}"><img src="{{ asset('assets/assets/img/webfish-logo.png') }}" alt="webfish logotype"></a>
+                <a href="{{ path('homepage') }}"><img src="{{ asset('assets/assets/img/webfish-logo.png') }}" alt="webfish logotype"></a>
             </div>
             <div class="ih-menu-right">
-                {% include 'BlogBundle:Components/_menu:_info-menu-list.html.twig' %}
+                {% include 'BlogBundle:Components/_menu_page:_info-menu-list.html.twig' %}
                 <div class="toogle">
                     <a href="#" id="toogle" class="menu-toogle"><span></span></a>
                 </div>
@@ -17,7 +17,7 @@
             <div class="ihtc-table">
                 <div class="breadcrumbs">
                     <ul>
-                        <li><a href="{{ path('blog_homepage') }}">Home</a></li>
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
                         <li><p>/</p></li>
                         <li><p>Info</p></li>
                     </ul>

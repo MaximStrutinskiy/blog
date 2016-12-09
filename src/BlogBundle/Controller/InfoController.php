@@ -28,7 +28,7 @@ class InfoController extends Controller
         }
 
         return $this->render(
-            'BlogBundle:Page:contact.html.twig',
+            'BlogBundle:Page/_page:contact.html.twig',
             [
                 'form_info' => $form->createView(),
             ]
@@ -40,6 +40,6 @@ class InfoController extends Controller
      */
     public function infoAction()
     {
-        return $this->render('BlogBundle:Page:info.html.twig');
+        return $this->render('BlogBundle:Page/_page:info.html.twig');
     }
 }

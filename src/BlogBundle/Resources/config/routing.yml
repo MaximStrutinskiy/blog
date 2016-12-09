@@ -1,4 +1,4 @@
-blog_homepage:
+homepage:
     path:     /
     defaults: { _controller: BlogBundle:Blog:index }
 

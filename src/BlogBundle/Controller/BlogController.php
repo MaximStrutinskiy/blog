@@ -8,11 +8,11 @@ class BlogController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BlogBundle:Page:index.html.twig');
+        return $this->render('BlogBundle:Page/_page:index.html.twig');
     }
 
     public function homeAction()
     {
-        return $this->render('BlogBundle:Page:blog.html.twig');
+        return $this->render('BlogBundle:Page/_blog:blog.html.twig');
     }
 }
