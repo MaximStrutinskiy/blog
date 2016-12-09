@@ -41,6 +41,12 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+# FOSUserBundle Configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: BlogBundle\Entity\User
+
 # Doctrine Configuration
 doctrine:
     dbal:
