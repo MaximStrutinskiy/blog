@@ -13,6 +13,14 @@ class InfoController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
+    public function indexAction()
+    {
+        return $this->render('BlogBundle:Page/_page:index.html.twig');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function contactAction(Request $request)
     {
         $info = new Info();

@@ -6,10 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BlogController extends Controller
 {
-    public function indexAction()
-    {
-        return $this->render('BlogBundle:Page/_page:index.html.twig');
-    }
 
     public function homeAction()
     {
