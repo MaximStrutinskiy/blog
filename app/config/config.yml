@@ -46,6 +46,10 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: BlogBundle\Entity\User
+    registration:
+            form:
+                type: BlogBundle\Forms\FormRegistrationType
+
 
 # Doctrine Configuration
 doctrine:
