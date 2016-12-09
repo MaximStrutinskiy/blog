@@ -33,7 +33,6 @@ security:
                 target_path_parameter:          _target_path
                 use_referer:                    false
 
-#                logout_path: /blog/logout
             logout:
                 path:   /blog/logout
                 target: /blog
@@ -49,3 +48,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+
+#instruction - http://symfony.com/doc/current/reference/configuration/security.html
