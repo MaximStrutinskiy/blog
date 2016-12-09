@@ -15,19 +15,34 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
         main:
-            anonymous: ~
             pattern: ^/
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
 
-            logout:       true
-            anonymous:    true
+                # submit the login form here
+                check_path: /blog/login_check
+
+                # the user is redirected here when they need to log in
+                login_path: /blog/login
+
+                # login success redirecting options (read further below)
+                always_use_default_target_path: false
+                default_target_path:            /blog/profile/
+                target_path_parameter:          _target_path
+                use_referer:                    false
+
+#                logout_path: /blog/logout
+            logout:
+                path:   /blog/logout
+                target: /blog
+                invalidate_session: false
+                delete_cookies:
+                    a: { path: null, domain: null }
+                    b: { path: null, domain: null }
+
+            anonymous: true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
