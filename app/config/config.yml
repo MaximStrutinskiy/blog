@@ -29,6 +29,7 @@ framework:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        cookie_lifetime: 604800 # 1 week in seconds
     fragments:       ~
     http_method_override: true
     assets: ~
@@ -38,6 +39,7 @@ framework:
 
 # Twig Configuration
 twig:
+    cache: false
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 

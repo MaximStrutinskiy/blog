@@ -12,14 +12,17 @@ security:
             memory: ~
 
         fos_userbundle:
-            id: fos_user.user_provider.username
+            #id: fos_user.user_provider.username #login whis user name
+            id: fos_user.user_provider.username_email #login whis user email/name
 
     firewalls:
         main:
             pattern: ^/
+
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                require_previous_session: false
 
                 # submit the login form here
                 check_path: /blog/login_check
@@ -42,6 +45,10 @@ security:
                     b: { path: null, domain: null }
 
             anonymous: true
+
+            remember_me:
+                secret: "%secret%"
+                lifetime: 604800 # 1 week in seconds
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -41,4 +41,5 @@
 14) Formf - http://symfony.com/doc/current/reference/forms/types/form.html
 15) FOSUserBundle - http://symfony.com/doc/current/bundles/FOSUserBundle/index.html
 16) Security yml - http://symfony.com/doc/current/reference/configuration/security.html
+17) FOSUserBundle tutorial - https://codereviewvideos.com/course/getting-started-with-fosuserbundle/video/getting-started-with-fosuserbundle;
 ```
