@@ -48,10 +48,21 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: BlogBundle\Entity\User
-    registration:
-            form:
-                type: BlogBundle\Forms\FormRegistrationType
+    from_email:
+        address: max.strutinskiy@gmail.com
+        sender_name: WebFish
 
+    #https://symfony.com/doc/current/bundles/FOSUserBundle/emails.html
+    registration:
+        form:
+            type: BlogBundle\Forms\FormRegistrationType
+        confirmation:
+            enabled: true
+    resetting:
+        email:
+            from_email:
+                address:        max.strutinskiy@gmail.com
+                sender_name:    WebFish
 
 # Doctrine Configuration
 doctrine:
