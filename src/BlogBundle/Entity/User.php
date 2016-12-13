@@ -20,9 +20,8 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
      * @Assert\Length(
      *     min=3,
      *     max=255,
@@ -32,6 +31,41 @@ class User extends BaseUser
      * )
      */
     protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The soname is too short.",
+     *     maxMessage="The soname is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+    protected $soname;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @Assert\IsNull()
+     *
+     * )
+     */
+    protected $age;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\Length(
+     *     min=2,
+     *     max=25,
+     *     minMessage="So short City name.",
+     *     maxMessage="So long City name.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+    protected $city;
 
     public function __construct()
     {
@@ -61,5 +95,77 @@ class User extends BaseUser
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set soname
+     *
+     * @param string $soname
+     *
+     * @return User
+     */
+    public function setSoname($soname)
+    {
+        $this->soname = $soname;
+
+        return $this;
+    }
+
+    /**
+     * Get soname
+     *
+     * @return string
+     */
+    public function getSoname()
+    {
+        return $this->soname;
+    }
+
+    /**
+     * Set age
+     *
+     * @param integer $age
+     *
+     * @return User
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return integer
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * Set city
+     *
+     * @param integer $city
+     *
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return integer
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }

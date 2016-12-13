@@ -19,6 +19,15 @@
 - $php bin/console doctrine:generate:entities BlogBundle/Entity/Info - generate get/set.
 - $php bin/console doctrine:schema:update --force - update database
 - $composer require friendsofsymfony/user-bundle "~2.0@dev" - install FOSUserBundle
+- $php bin/console doctrine:database:create  - generate DB (deffault - geekhub_db)
+- $php bin/console doctrine:generate:entities BlogBundle - generate all entities in App Bundle ((get/set)
+- $php bin/console doctrine:schema:update --force - add table to DB
+- $php bin/console doctrine:fixtures:load - add to table this data's (this command delete all data's, if you wont add (no delete old data) - use "--append")
+- $php bin/console doctrine:schema:drop --force - drop schema
+
+
+
+- contrib combo-wombo comands php bin/console doctrine:schema:drop --force && bin/console doctrine:generate:entities BlogBundle && bin/console doctrine:schema:update --force
 ```
 ---
 
@@ -42,4 +51,5 @@
 15) FOSUserBundle - http://symfony.com/doc/current/bundles/FOSUserBundle/index.html
 16) Security yml - http://symfony.com/doc/current/reference/configuration/security.html
 17) FOSUserBundle tutorial - https://codereviewvideos.com/course/getting-started-with-fosuserbundle/video/getting-started-with-fosuserbundle;
+18) Assert validation - https://symfony.com/doc/current/validation.html
 ```
