@@ -5,6 +5,7 @@ namespace BlogBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+//use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
@@ -66,6 +67,17 @@ class User extends BaseUser
      * )
      */
     protected $city;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     *
+     * @Assert\NotBlank(message="Please, upload the image.")
+     *     maxSize = "2M",
+     *     mimeTypes = {"application/png", "application/jpeg"},
+     *     mimeTypesMessage = "Please upload a valid PDF or JPEG"
+     */
+    protected $img;
 
     public function __construct()
     {
@@ -167,5 +179,29 @@ class User extends BaseUser
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     *
+     * @return User
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
     }
 }

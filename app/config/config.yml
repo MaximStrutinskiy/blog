@@ -36,7 +36,6 @@ framework:
     php_errors:
         log: true
 
-
 # Twig Configuration
 twig:
     cache: false
@@ -56,9 +55,11 @@ fos_user:
     registration:
         form:
             type: BlogBundle\Forms\FormRegistrationType
+
 #        if you need confirm emain - enable this settings
 #        confirmation:
 #            enabled: true
+
     resetting:
         token_ttl: 86400 # change this value, it is in seconds = 24 hours
         email:

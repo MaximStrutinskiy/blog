@@ -8,6 +8,12 @@ services:
         class: BlogBundle\Forms\FormRegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    app.form.profile_edit:
+        class: BlogBundle\Forms\FormUserEdit
+        tags:
+            - { name: form.type, alias: app_user_profile_edit }
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

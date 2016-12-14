@@ -67,6 +67,16 @@ class User extends BaseUser
      */
     protected $city;
 
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the image.")
+     *     maxSize = "2M",
+     *     mimeTypes = {"application/png", "application/jpeg"},
+     *     mimeTypesMessage = "Please upload a valid PDF or JPEG"
+     */
+    protected $img;
+
     public function __construct()
     {
         parent::__construct();
@@ -167,5 +177,29 @@ class User extends BaseUser
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     *
+     * @return User
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
     }
 }
