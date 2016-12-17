@@ -5,14 +5,14 @@ parameters:
 
 services:
     app.form.registration:
-        class: BlogBundle\Forms\FormRegistrationType
+        class: BlogBundle\Forms\FOSUserBundle\FormRegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
 
-    app.form.profile_edit:
-        class: BlogBundle\Forms\FormUserEdit
-        tags:
-            - { name: form.type, alias: app_user_profile_edit }
+#    app.form.profile_edit:
+#        class: BlogBundle\Forms\FormUserEdit
+#        tags:
+#            - { name: form.type, alias: app_user_profile_edit }
 
 #    service_name:
 #        class: AppBundle\Directory\ClassName

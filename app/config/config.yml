@@ -54,7 +54,7 @@ fos_user:
     #https://symfony.com/doc/current/bundles/FOSUserBundle/emails.html
     registration:
         form:
-            type: BlogBundle\Forms\FormRegistrationType
+            type: BlogBundle\Forms\FOSUserBundle\FormRegistrationType
 
 #        if you need confirm emain - enable this settings
 #        confirmation:
@@ -66,6 +66,9 @@ fos_user:
             from_email:
                 address:        5i4wxk+ru5w0pxut6tq2nlv3lucc@sharklasers.com
                 sender_name:    WebFish
+
+parameters:
+    brochures_directory: '%kernel.root_dir%/../web/uploads/brochures'
 
 # Doctrine Configuration
 doctrine:

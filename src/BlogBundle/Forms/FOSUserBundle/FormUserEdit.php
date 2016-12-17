@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Forms;
+namespace BlogBundle\Forms\FOSUserBundle;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;

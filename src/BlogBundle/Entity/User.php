@@ -47,8 +47,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     *
-     * @Assert\IsNull()
+
      *
      * )
      */
