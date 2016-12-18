@@ -44,7 +44,8 @@ class FormRegistrationType extends AbstractType
                 'img',
                 FileType::class,
                 array(
-                    'label' => 'Upload you img (PNG file)'
+                    'label' => 'Upload you img (PNG file)',
+                    'required' => false
                 )
             )
         ;

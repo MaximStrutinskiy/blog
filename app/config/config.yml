@@ -67,6 +67,15 @@ fos_user:
                 address:        5i4wxk+ru5w0pxut6tq2nlv3lucc@sharklasers.com
                 sender_name:    WebFish
 
+# SonataAdminBundle Configuration
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        # ...
+
 parameters:
     brochures_directory: '%kernel.root_dir%/../web/uploads/brochures'
 

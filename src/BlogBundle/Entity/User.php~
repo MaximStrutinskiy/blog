@@ -27,7 +27,6 @@ class User extends BaseUser
      *     max=255,
      *     minMessage="The name is too short.",
      *     maxMessage="The name is too long.",
-     *     groups={"Registration", "Profile"}
      * )
      */
     protected $name;
@@ -40,7 +39,6 @@ class User extends BaseUser
      *     max=255,
      *     minMessage="The soname is too short.",
      *     maxMessage="The soname is too long.",
-     *     groups={"Registration", "Profile"}
      * )
      */
     protected $soname;
@@ -61,13 +59,12 @@ class User extends BaseUser
      *     max=25,
      *     minMessage="So short City name.",
      *     maxMessage="So long City name.",
-     *     groups={"Registration", "Profile"}
      * )
      */
     protected $city;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\NotBlank(message="Please, upload the image.")
      *     maxSize = "2M",
