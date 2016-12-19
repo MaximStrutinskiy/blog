@@ -9,10 +9,10 @@ services:
         tags:
             - { name: form.type, alias: app_user_registration }
 
-#    app.form.profile_edit:
-#        class: BlogBundle\Forms\FormUserEdit
-#        tags:
-#            - { name: form.type, alias: app_user_profile_edit }
+    app.form.profile-edit:
+        class: BlogBundle\Forms\FOSUserBundle\FormUserEdit
+        tags:
+            - { name: form.type, alias: app_user_profile }
 
 #    service_name:
 #        class: AppBundle\Directory\ClassName

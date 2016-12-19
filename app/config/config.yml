@@ -56,6 +56,9 @@ fos_user:
         form:
             type: BlogBundle\Forms\FOSUserBundle\FormRegistrationType
 
+    profile:
+        form:
+            type: BlogBundle\Forms\FOSUserBundle\FormUserEdit
 #        if you need confirm emain - enable this settings
 #        confirmation:
 #            enabled: true
