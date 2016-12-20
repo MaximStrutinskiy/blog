@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Controller\FOSUserBundle;
+namespace BlogBundle\Controller;
 
 
 use BlogBundle\Entity\User;
