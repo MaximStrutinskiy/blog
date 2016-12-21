@@ -45,7 +45,6 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-
      *
      * )
      */
@@ -66,10 +65,12 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", nullable=true)
      *
-     * @Assert\NotBlank(message="Please, upload the image.")
-     *     maxSize = "2M",
-     *     mimeTypes = {"application/png", "application/jpeg"},
-     *     mimeTypesMessage = "Please upload a valid PDF or JPEG"
+     * @Assert\Image(
+     *     minWidth = 1,
+     *     maxWidth = 1000,
+     *     minHeight = 1,
+     *     maxHeight = 1000
+     * )
      */
     protected $img;
 
