@@ -42,21 +42,21 @@ class RegistrationController extends BaseController
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
 
-
-//                img download
                 $img = $user->getImg();
-                // Generate a unique name for the file before saving it
-                $fileName = md5(uniqid()).'.'.$img->getExtension();
+                if ($img !== null) {
+                    $img = $user->getImg();
+                    // Generate a unique name for the file before saving it
+                    $fileName = md5(uniqid()).'.'.$img->getExtension();
 
-                // Move the file to the directory where brochures are stored
-                $img->move(
-                    $this->getParameter('file_directory'),
-                    $fileName
-                );
-                // Update the 'img' property to store the img file name
-                // instead of its contents
-                $user->setImg($fileName);
-//                img download
+                    // Move the file to the directory where brochures are stored
+                    $img->move(
+                        $this->getParameter('file_directory'),
+                        $fileName
+                    );
+                    // Update the 'img' property to store the img file name
+                    // instead of its contents
+                    $user->setImg($fileName);
+                }
 
 
                 $event = new FormEvent($form, $request);
