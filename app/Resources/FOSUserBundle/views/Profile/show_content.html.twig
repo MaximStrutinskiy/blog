@@ -6,9 +6,10 @@
     <p>User name: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
     <br>
-    <p>Photo: {{ asset('images/' ~ user.img ) }}</p>
+    <p>Photo: <img src="{{ asset('images/' ~ user.img ) }}" alt="{{ user.username }}'s img"></p>
     <p>Name: {{ user.name }}</p>
     <p>Soname: {{ user.soname }}</p>
     <p>Age: {{ user.age }}</p>
     <p>City: {{ user.city }}</p>
 </div>
+
