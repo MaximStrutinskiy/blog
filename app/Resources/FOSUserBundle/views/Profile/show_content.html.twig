@@ -1,6 +1,14 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <h2>Hello {{ user.username }}, it's you personal page.</h2>
+    <br>
+    <p>User name: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <br>
+    <p>Photo: {{ asset('images/' ~ user.img ) }}</p>
+    <p>Name: {{ user.name }}</p>
+    <p>Soname: {{ user.soname }}</p>
+    <p>Age: {{ user.age }}</p>
+    <p>City: {{ user.city }}</p>
 </div>

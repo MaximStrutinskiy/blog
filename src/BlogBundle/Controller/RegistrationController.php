@@ -4,7 +4,6 @@ namespace BlogBundle\Controller;
 
 
 use BlogBundle\Entity\User;
-use BlogBundle\Forms\FOSUserBundle\FormRegistrationType;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
@@ -16,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseController
 {
-    //add redirect
+
     public function registerAction(Request $request)
     {
 
@@ -58,7 +57,6 @@ class RegistrationController extends BaseController
                     $user->setImg($fileName);
                 }
 
-
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
@@ -93,5 +91,3 @@ class RegistrationController extends BaseController
         );
     }
 }
-
-//change form, wen registers new user - he status enable - 0
