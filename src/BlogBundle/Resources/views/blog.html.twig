@@ -1,0 +1,53 @@
+{% extends "BlogBundle::base.html.twig" %}
+
+{% block body %}
+
+    <div id="blog_menu" class="blog_menu">
+
+        <div class="blog_menu_container">
+
+            <div class="bm_links">
+                123
+            </div>
+
+            <div class="bm_user">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                    <p class="bm_user_name">{{ app.user.username }}</p>
+
+                    <a class="bm_user_link_img" href="{{ path('fos_user_profile_show') }}">
+                        <img class="bm_user_img" src="{{ asset('images/' ~ app.user.img ) }}"/>
+                    </a>
+
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
+
+{% endblock %}

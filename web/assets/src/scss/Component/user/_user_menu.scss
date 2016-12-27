@@ -1,0 +1,35 @@
+.blog_menu{
+  background: #f1f1f1;
+
+
+  .blog_menu_container{
+	@include clearfix;
+	@include page-container();
+  }
+
+  .bm_links{
+	@include span(10 of 12);
+  }
+
+  .bm_user{
+	text-align: right;
+	@include  span(2 of 12 last);
+
+	.bm_user_link_img,
+	.bm_user_name
+	{
+	  display: inline-block;
+	}
+
+	.bm_user_img{
+	  width: rem(65px);
+	  height: rem(65px);
+	  border-radius: rem(50px);
+	  position: relative;
+
+	  //&::before {
+		//content: "Read this: ";
+	  //}
+	}
+  }
+}
