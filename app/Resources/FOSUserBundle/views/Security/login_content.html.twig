@@ -1,7 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% if error %}
-    <div class="user-error">
+    <div class="error-message">
         <span>{{ error.messageKey|trans(error.messageData, 'security') }}</span>
     </div>
 {% endif %}

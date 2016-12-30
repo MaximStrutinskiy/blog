@@ -1,12 +1,12 @@
 $(function () {
 	$(document).ready(function () {
-		//Function - min-height
+		//Function - Index homepage min-height
 		function minHeight(tag, e) {
-			$hwd = $(window).height();
+			$hwd = $(window).height(); //height screen device
 
 			if (e) {
 				$hwd = $hwd / e;
-				$sh = $(tag);
+				$sh = $(tag);              //section bark need min-height
 				$sh.css('min-height', $hwd);
 			} else {
 				$sh = $(tag);
@@ -30,31 +30,54 @@ $(function () {
 			}
 		});
 
-		var mmenu = $('#mobile-menu').data("mmenu");
+		var mmenuId = document.getElementById('toogle');
+		if (mmenuId) {
+			var api = $('#mobile-menu').data("mmenu");
 
-		$("#toogle").click(function () {
-			$(this).removeClass('active');
-			api.open();
-		});
-
-		mmenu.bind("closed", function () {
-			$('#toogle').removeClass('active');
-		});
-
-		//Toogle menu button
-		function toogleButton() {
-			$toogle = $('#toogle');
-
-			$toogle.on('click', function () {
-				$(this).toggleClass('active');
+			$("#toogle").click(function () {
+				$(this).removeClass('active');
+				api.open();
 			});
+
+			api.bind("closed", function () {
+				$('#toogle').removeClass('active');
+			});
+
+			//Toogle menu button
+			function toogleButton() {
+				$toogle = $('#toogle');
+
+				$toogle.on('click', function () {
+					$(this).toggleClass('active');
+				});
+			}
+
+			toogleButton();
+		}
+
+		//dropdown menu
+		var dropMenuId = document.getElementById('bm_user_drop_menu_button');
+		if (dropMenuId) {
+			function dropDownMenu() {
+				var buttonCont = '#bm_user_drop_menu_button';
+				var dropCont = $(buttonCont + '> #bm_user_drop_menu_content');
+				$(buttonCont).hover(
+					function () {
+						dropCont.addClass('active').fadeIn(300);
+					},
+					function () {
+						dropCont.removeClass('active').fadeOut();
+					}
+				)
+			}
+
+			dropDownMenu();
 		}
 
 		//Run functions
 		minHeight('#index-header');
 		minHeight('#info-header', 2.5);
 		minHeight('#contact-header', 2.5);
-		toogleButton();
 
 		$(window).resize(function () {
 			minHeight('#index-header');
@@ -62,7 +85,7 @@ $(function () {
 			minHeight('#contact-header', 2.5);
 
 			$('#toogle').removeClass('active');
-			mmenu.close();
+			api.close();
 		});
 	});
 });

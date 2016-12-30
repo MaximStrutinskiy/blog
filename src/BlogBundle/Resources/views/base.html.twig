@@ -15,7 +15,17 @@
 </head>
 <body>
 {#add contents#}
-{% block body %}{% endblock %}
+    {# for mmenu #}
+    {% block body_top %}{% endblock %}
+
+    {# for content #}
+    {% block body %}{% endblock %}
+
+    {# for FosUserBundle #}
+    {% block body_user_content %}{% endblock %}
+
+    {# for footer #}
+    {% block body_bottom %}{% endblock %}
 
 {#add scripts#}
 {% include "BlogBundle:Main:_script.html.twig" %}

@@ -1,0 +1,83 @@
+<div id="blog_menu" class="blog_menu">
+
+    <div class="blog_menu_container">
+
+        <div class="bm_links">
+
+            <ul>
+                <li><a href="#">link_1</a></li>
+                <li><a href="#">link_2</a></li>
+                <li><a href="#">link_3</a></li>
+                <li><a href="#">link_4</a></li>
+                <li><a href="#">link_5</a></li>
+            </ul>
+
+        </div>
+
+        <div class="bm_user">
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                <div id="bm_user_drop_menu_button">
+
+                    <p class="bm_user_name">Hello - {{ app.user.username }}</p>
+
+                    <div class="bm_user_link_img" href="{{ path('fos_user_profile_show') }}">
+                        <img class="bm_user_img" src="{{ asset('images/' ~ app.user.img ) }}"/>
+                    </div>
+
+                    <div id="bm_user_drop_menu_content">
+
+                        <div>
+
+                            <a href="{{ path('fos_user_profile_show') }}">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+
+                                Profile
+
+                            </a>
+
+
+                            <a href="{{ path('fos_user_security_logout') }}">
+
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+
+                                Exit
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            {% else %}
+
+                {#<a href="{{ path('fos_user_security_login') }}">LogIn / SignUp</a>#}
+
+                <div id="bm_user_drop_menu_button">
+
+                    <p>LogIn / SignUp</p>
+
+                    <div id="bm_user_drop_menu_content">
+
+                        <div>
+
+                            {% include('FOSUserBundle:Security:login_content.html.twig') %}
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>

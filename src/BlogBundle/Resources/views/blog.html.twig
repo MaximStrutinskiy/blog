@@ -1,48 +1,10 @@
 {% extends "BlogBundle::base.html.twig" %}
 
-{% block body %}
+{% block body_top %}
+    {% include 'BlogBundle:Components/_menu_page:_menu_blog.html.twig' %}
+{% endblock %}
 
-    <div id="blog_menu" class="blog_menu">
-
-        <div class="blog_menu_container">
-
-            <div class="bm_links">
-
-                123
-
-            </div>
-
-            <div class="bm_user">
-
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-                    <p id="bm_user_drop_menu_button" class="bm_user_name">{{ app.user.username }}</p>
-
-                    <div id="bm_user_drop_menu_button" class="bm_user_link_img" href="{{ path('fos_user_profile_show') }}">
-
-                        <img class="bm_user_img" src="{{ asset('images/' ~ app.user.img ) }}"/>
-
-                    </div>
-
-                    <a href="{{ path('fos_user_security_logout') }}">
-
-                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-
-                    </a>
-
-                {% else %}
-
-                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-    </div>
-
-
+{% block body_user_content %}
 
     {% if app.request.hasPreviousSession %}
         {% for type, messages in app.session.flashbag.all() %}
@@ -54,9 +16,16 @@
         {% endfor %}
     {% endif %}
 
-    <div>
-        {% block fos_user_content %}
-        {% endblock fos_user_content %}
-    </div>
+<div>
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+</div>
 
+{% endblock body_user_content %}
+
+{% block body %}
+{% endblock %}
+
+{% block body_bottom %}
+    {% include "BlogBundle:Components/_footer:_footer.html.twig" %}
 {% endblock %}
