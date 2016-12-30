@@ -1,12 +1,12 @@
 $(function () {
 	$(document).ready(function () {
-		//Function - Index homepage min-height
+		//Function - min-height
 		function minHeight(tag, e) {
-			$hwd = $(window).height(); //height screen device
+			$hwd = $(window).height();
 
 			if (e) {
 				$hwd = $hwd / e;
-				$sh = $(tag);              //section bark need min-height
+				$sh = $(tag);
 				$sh.css('min-height', $hwd);
 			} else {
 				$sh = $(tag);
@@ -30,14 +30,14 @@ $(function () {
 			}
 		});
 
-		var api = $('#mobile-menu').data("mmenu");
+		var mmenu = $('#mobile-menu').data("mmenu");
 
 		$("#toogle").click(function () {
 			$(this).removeClass('active');
 			api.open();
 		});
 
-		api.bind("closed", function () {
+		mmenu.bind("closed", function () {
 			$('#toogle').removeClass('active');
 		});
 
@@ -62,7 +62,7 @@ $(function () {
 			minHeight('#contact-header', 2.5);
 
 			$('#toogle').removeClass('active');
-			api.close();
+			mmenu.close();
 		});
 	});
 });

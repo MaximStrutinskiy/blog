@@ -5,6 +5,25 @@
 
 {% block body %}
 
-    {% include "BlogBundle:Section:_footer.html.twig" %}
+    <div class="bm_user">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+            <p id="bm_user_drop_menu_button" class="bm_user_name">{{ app.user.username }}</p>
+
+            <div id="bm_user_drop_menu_button" class="bm_user_link_img" href="{{ path('fos_user_profile_show') }}">
+                <img class="bm_user_img" src="{{ asset('images/' ~ app.user.img ) }}"/>
+            </div>
+
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
+
+    </div>
+
+    {% include "BlogBundle:Components/_footer:_footer.html.twig" %}
 
 {% endblock %}
