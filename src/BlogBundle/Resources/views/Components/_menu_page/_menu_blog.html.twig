@@ -66,7 +66,21 @@
 
                         <div>
 
-                            {% include('FOSUserBundle:Security:login_content.html.twig') %}
+                            <a href="{{ path('fos_user_security_login') }}">
+
+                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+
+                                Login
+
+                            </a>
+
+                            <a href="{{ path('fos_user_registration_register') }}">
+
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                                Register
+
+                            </a>
 
                         </div>
 
