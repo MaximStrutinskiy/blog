@@ -49,6 +49,7 @@
 		text-align: left;
 		width: 100%;
 		padding-top: rem(10px);
+		color: $whit;
 
 		div {
 		  background-color: $black-text;
@@ -68,7 +69,7 @@
 			border-bottom: rem(12px) solid $black-text;
 		  }
 
-		  a {
+		  a.on {
 			padding: rem(10px);
 			display: block;
 			color: $whit;
@@ -78,6 +79,46 @@
 			  text-decoration: none;
 			  background-color: $blue;
 			}
+		  }
+
+		  form > a {
+			color: $blue;
+
+			&:hover {
+			  text-decoration: underline;
+			}
+		  }
+
+		  label {
+			font-size: 12px;
+			margin: 0;
+			font-weight: 400;
+		  }
+
+		  .label{
+			display: none;
+		  }
+
+		  input[type=text],
+		  input[type=password]{
+			border: rem(2px) solid $blue;
+			box-shadow: none;
+			width: 100%;
+			margin-bottom: rem(20px);
+			color: $black;
+			padding: rem(5px);
+
+			&:focus {
+			  outline: none;
+			}
+		  }
+
+		  input[type=checkbox]{
+			margin-bottom: rem(20px);
+		  }
+
+		  input[type=submit] {
+			@include button($blue, $whit);
 		  }
 		}
 	  }

@@ -1,5 +1,4 @@
 <div id="blog_menu" class="blog_menu">
-
     <div class="blog_menu_container">
 
         <div class="bm_links">
@@ -38,7 +37,20 @@
 
                         <div>
 
-                            <a href="{{ path('fos_user_profile_show') }}">
+                            {% if app.user.roles is iterable %}
+                                {% for role in app.user.roles %}
+                                    {% if role == 'ROLE_SUPER_ADMIN' %}
+                                        <a class="on" href="{{ path('sonata_admin_dashboard') }}">
+                                            <i class="fa fa-medkit" aria-hidden="true"></i>
+
+                                            Admin room
+
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                            <a class="on" href="{{ path('fos_user_profile_show') }}">
                                 <i class="fa fa-user-o" aria-hidden="true"></i>
 
                                 Profile
@@ -46,7 +58,7 @@
                             </a>
 
 
-                            <a href="{{ path('fos_user_security_logout') }}">
+                            <a class="on" href="{{ path('fos_user_security_logout') }}">
 
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
 
@@ -76,7 +88,6 @@
                             {{ render(controller('BlogBundle:Security:loginMenu')) }}
 
                         </div>
-
 
                     </div>
 

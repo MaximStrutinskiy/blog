@@ -9,7 +9,6 @@
 namespace BlogBundle\Controller;
 
 use FOS\UserBundle\Controller\SecurityController as BaseController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
@@ -20,7 +19,8 @@ class SecurityController extends BaseController
     /**
      * login for menu
      */
-    public function loginMenuAction(Request $request){
+    public function loginMenuAction(Request $request)
+    {
         /** @var $session \Symfony\Component\HttpFoundation\Session\Session */
         $session = $request->getSession();
 
@@ -48,11 +48,13 @@ class SecurityController extends BaseController
             ? $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue()
             : null;
 
-        return $this->renderLogin(array(
-            'last_username' => $lastUsername,
-            'error' => $error,
-            'csrf_token' => $csrfToken,
-        ));
+        return $this->renderLogin(
+            array(
+                'last_username' => $lastUsername,
+                'error' => $error,
+                'csrf_token' => $csrfToken,
+            )
+        );
     }
 
     /**
@@ -70,7 +72,9 @@ class SecurityController extends BaseController
 
     public function checkAction()
     {
-        throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
+        throw new \RuntimeException(
+            'You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.'
+        );
     }
 
     public function logoutAction()
