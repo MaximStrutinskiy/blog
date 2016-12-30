@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseController
 {
-
     public function registerAction(Request $request)
     {
         $user = new User();
