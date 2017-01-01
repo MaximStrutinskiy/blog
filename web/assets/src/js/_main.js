@@ -1,26 +1,26 @@
 $(function () {
 	$(document).ready(function () {
-		//Function - Index homepage min-height
-		function minHeight(tag, e) {
-			$hwd = $(window).height(); //height screen device
-
-			if (e) {
-				$hwd = $hwd / e;
-				$sh = $(tag);              //section bark need min-height
-				$sh.css('min-height', $hwd);
-			} else {
-				$sh = $(tag);
-				$sh.css('min-height', $hwd);
-			}
-		}
 
 		//mmenu
+		var indexId = document.getElementById('index-header'),
+			infoId = document.getElementById('info-header'),
+			contactId = document.getElementById('contact-header');
+
 		//for index-page
-		$('#index-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		if (indexId) {
+			$('#index-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		}
+
 		//for info-page
-		$('#info-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		if (infoId) {
+			$('#info-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		}
+
 		//for contact-page
-		$('#contact-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+		if (contactId) {
+			$('#contact-header .menu-list').after("<div id='mobile-menu'>").clone().appendTo('#mobile-menu');
+
+		}
 
 		$("#mobile-menu").children("ul").removeClass('.menu-list')
 			.parent().mmenu({
@@ -45,7 +45,7 @@ $(function () {
 
 			//Toogle menu button
 			function toogleButton() {
-				$toogle = $('#toogle');
+				var $toogle = $('#toogle');
 
 				$toogle.on('click', function () {
 					$(this).toggleClass('active');
@@ -72,6 +72,19 @@ $(function () {
 			}
 
 			dropDownMenu();
+		}
+
+		//min height
+		function minHeight(tag, e) {
+			var $hwd = $(window).height(),
+				$sh = $(tag);
+
+			if (e) {
+				$hwd = $hwd / e;
+				$sh.css('min-height', $hwd);
+			} else {
+				$sh.css('min-height', $hwd);
+			}
 		}
 
 		//Run functions

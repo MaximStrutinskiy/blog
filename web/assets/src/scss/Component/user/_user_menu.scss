@@ -6,6 +6,11 @@
 	@include page-container();
   }
 
+  a,
+  p{
+	font-size: 18px;
+  }
+
   .bm_links {
 	@include span(10 of 12);
 	text-align: right;
@@ -30,8 +35,8 @@
 	  position: relative;
 
 	  img {
-		max-width: rem(65px);
-		max-height: rem(65px);
+		max-width: rem(32px);
+		max-height: rem(32px);
 		border-radius: rem(50px);
 	  }
 	}
@@ -95,12 +100,12 @@
 			font-weight: 400;
 		  }
 
-		  .label{
+		  .label {
 			display: none;
 		  }
 
 		  input[type=text],
-		  input[type=password]{
+		  input[type=password] {
 			border: rem(2px) solid $blue;
 			box-shadow: none;
 			width: 100%;
@@ -113,7 +118,7 @@
 			}
 		  }
 
-		  input[type=checkbox]{
+		  input[type=checkbox] {
 			margin-bottom: rem(20px);
 		  }
 
