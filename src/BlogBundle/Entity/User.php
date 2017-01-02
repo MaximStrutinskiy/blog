@@ -74,10 +74,22 @@ class User extends BaseUser
      */
     protected $img;
 
+    /**
+     * Many User have Many Comments.
+     * Used function __construct().
+     *
+     * @ORM\ManyToMany(targetEntity="Comment")
+     * @ORM\JoinTable(name="user_comments",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="comment_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    protected $comments;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -198,5 +210,39 @@ class User extends BaseUser
     public function getImg()
     {
         return $this->img;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \BlogBundle\Entity\Comment $comment
+     *
+     * @return User
+     */
+    public function addComment(\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \BlogBundle\Entity\Comment $comment
+     */
+    public function removeComment(\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

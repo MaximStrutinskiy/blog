@@ -1,0 +1,126 @@
+<?php
+
+namespace BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Class Post
+ * @package BlogBundle\Entity
+ * @ORM\Table(name="post")
+ * @ORM\Entity()
+ **/
+class Post
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\Image(
+     *     minWidth = 800,
+     *     maxWidth = 3500,
+     *     minHeight = 400,
+     *     maxHeight = 2500,
+     *     minWidthMessage="min width 800px.",
+     *     maxWidthMessage="max width 3500px.",
+     *     minHeightMessage="min height 400px.",
+     *     maxHeightMessage="max height 2500px.",
+     * )
+     */
+    protected $postImg;
+
+    /**
+     * @ORM\Column(type="string", length=75, nullable=false)
+     *
+     * @Assert\Length(
+     *     min=3,
+     *     max=75,
+     *     minMessage="min length > 3.",
+     *     maxMessage="max length < 75.",
+     * )
+     */
+    protected $shortTitle;
+
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     *
+     * @Assert\Length(
+     *     min=3,
+     *     minMessage="min length > 3.",
+     * )
+     */
+    protected $longTitle;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     *
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="min length > 3.",
+     *     maxMessage="max length < 255.",
+     * )
+     */
+    protected $shortDescriptions;
+
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     *
+     * @Assert\Length(
+     *     min=3,
+     *     minMessage="min length > 3.",
+     * )
+     */
+    protected $longDescriptions;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $postDate;
+
+    /**
+     * One Post has Many Comments.
+     * Used function __construct().
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    protected $comment;
+
+    /**
+     * Many Post have Many Tags.
+     * Used function __construct().
+     *
+     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\JoinTable(name="post_tags",
+     *      joinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    protected $tag;
+
+    /**
+     * Many Posts have One Category.
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
+    /**
+     * One Post has One User.
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+
+    public function __construct() {
+        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+}

@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class RegistrationController extends BaseController
+class FOSUserRegistrationController extends BaseController
 {
     public function registerAction(Request $request)
     {

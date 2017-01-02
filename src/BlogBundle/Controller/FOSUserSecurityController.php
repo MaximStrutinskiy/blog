@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: maximstrutinskiy
- * Date: 30.12.16
- * Time: 22:52
- */
 
 namespace BlogBundle\Controller;
 
@@ -14,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 
-class SecurityController extends BaseController
+class FOSUserSecurityController extends BaseController
 {
     /**
      * login for menu

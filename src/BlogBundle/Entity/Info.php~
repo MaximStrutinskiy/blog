@@ -18,30 +18,30 @@ class Info
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      */
-    private $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      */
-    private $phone;
+    protected $phone;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
      */
-    private $message;
+    protected $message;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created;
+    protected $created;
 
     /**
      * @return mixed
