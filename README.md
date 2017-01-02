@@ -35,7 +35,7 @@ php bin/console doctrine:schema:drop --force && bin/console doctrine:generate:en
 
 **Use materials:** 
 ```
-0) GeekHub materials - https://plus.google.com/u/0/communities/103356895682698281466
+0) [GeekHub materials](https://plus.google.com/u/0/communities/103356895682698281466)
 1) Http fundamentals - http://symfony.com/doc/current/introduction/http_fundamentals.html  
 2) Architecture - http://symfony.com/doc/current/quick_tour/the_architecture.html
 3) Configuration - http://symfony.com/doc/current/configuration.html
