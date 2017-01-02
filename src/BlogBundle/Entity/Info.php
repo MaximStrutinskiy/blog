@@ -44,7 +44,7 @@ class Info
     protected $created;
 
     /**
-     * @return mixed
+     * Info constructor.
      */
     public function __construct()
     {

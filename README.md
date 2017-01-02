@@ -29,7 +29,7 @@
 
 
 
-- custom combo-wombo comands php bin/console doctrine:schema:drop --force && bin/console doctrine:generate:entities BlogBundle && bin/console doctrine:schema:update --force
+php bin/console doctrine:schema:drop --force && bin/console doctrine:generate:entities BlogBundle && bin/console doctrine:schema:update --force
 ```
 ---
 
@@ -55,5 +55,6 @@
 17) FOSUserBundle tutorial - https://codereviewvideos.com/course/getting-started-with-fosuserbundle/video/getting-started-with-fosuserbundle;
 18) Assert validation - https://symfony.com/doc/current/validation.html
 19) SonataAdminBundle - https://sonata-project.org
+20) Doctrine - http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html
 
 

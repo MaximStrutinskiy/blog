@@ -119,6 +119,9 @@ class Post
      */
     protected $user;
 
+    /**
+     * Post constructor.
+     */
     public function __construct() {
         $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
         $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
