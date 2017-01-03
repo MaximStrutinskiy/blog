@@ -4,16 +4,41 @@ parameters:
 #    parameter_name: value
 
 services:
+
+#FOSUserBundle
+#Registration
     app.form.registration:
         class: BlogBundle\Forms\FOSUserBundle\FormRegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
 
+#Profile edit
     app.form.profile-edit:
         class: BlogBundle\Forms\FOSUserBundle\FormUserEdit
         tags:
             - { name: form.type, alias: app_user_profile }
 
+#SonataAdminBundle
+#Category
+    admin.category:
+            class: BlogBundle\Admin\CategoryAdmin
+            arguments: [~, BlogBundle\Entity\Category, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Post info,  label: Category }
+
+#Tag
+    admin.tag:
+            class: BlogBundle\Admin\TagAdmin
+            arguments: [~, BlogBundle\Entity\Tag, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Post info, label: Tag }
+
+#Post
+    admin.blog_post:
+            class: BlogBundle\Admin\BlogPostAdmin
+            arguments: [~, BlogBundle\Entity\Post, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Post info, label: Post }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

@@ -50,4 +50,86 @@ class Comment
      * @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
      */
     protected $post;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set commentPost
+     *
+     * @param string $commentPost
+     *
+     * @return Comment
+     */
+    public function setCommentPost($commentPost)
+    {
+        $this->commentPost = $commentPost;
+
+        return $this;
+    }
+
+    /**
+     * Get commentPost
+     *
+     * @return string
+     */
+    public function getCommentPost()
+    {
+        return $this->commentPost;
+    }
+
+    /**
+     * Set postDate
+     *
+     * @param \DateTime $postDate
+     *
+     * @return Comment
+     */
+    public function setPostDate($postDate)
+    {
+        $this->postDate = $postDate;
+
+        return $this;
+    }
+
+    /**
+     * Get postDate
+     *
+     * @return \DateTime
+     */
+    public function getPostDate()
+    {
+        return $this->postDate;
+    }
+
+    /**
+     * Set post
+     *
+     * @param \BlogBundle\Entity\Post $post
+     *
+     * @return Comment
+     */
+    public function setPost(\BlogBundle\Entity\Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return \BlogBundle\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
 }

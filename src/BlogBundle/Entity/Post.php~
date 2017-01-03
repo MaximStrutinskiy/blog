@@ -119,8 +119,281 @@ class Post
      */
     protected $user;
 
+    /**
+     * Post constructor.
+     */
     public function __construct() {
         $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
         $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set postImg
+     *
+     * @param string $postImg
+     *
+     * @return Post
+     */
+    public function setPostImg($postImg)
+    {
+        $this->postImg = $postImg;
+
+        return $this;
+    }
+
+    /**
+     * Get postImg
+     *
+     * @return string
+     */
+    public function getPostImg()
+    {
+        return $this->postImg;
+    }
+
+    /**
+     * Set shortTitle
+     *
+     * @param string $shortTitle
+     *
+     * @return Post
+     */
+    public function setShortTitle($shortTitle)
+    {
+        $this->shortTitle = $shortTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get shortTitle
+     *
+     * @return string
+     */
+    public function getShortTitle()
+    {
+        return $this->shortTitle;
+    }
+
+    /**
+     * Set longTitle
+     *
+     * @param string $longTitle
+     *
+     * @return Post
+     */
+    public function setLongTitle($longTitle)
+    {
+        $this->longTitle = $longTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get longTitle
+     *
+     * @return string
+     */
+    public function getLongTitle()
+    {
+        return $this->longTitle;
+    }
+
+    /**
+     * Set shortDescriptions
+     *
+     * @param string $shortDescriptions
+     *
+     * @return Post
+     */
+    public function setShortDescriptions($shortDescriptions)
+    {
+        $this->shortDescriptions = $shortDescriptions;
+
+        return $this;
+    }
+
+    /**
+     * Get shortDescriptions
+     *
+     * @return string
+     */
+    public function getShortDescriptions()
+    {
+        return $this->shortDescriptions;
+    }
+
+    /**
+     * Set longDescriptions
+     *
+     * @param string $longDescriptions
+     *
+     * @return Post
+     */
+    public function setLongDescriptions($longDescriptions)
+    {
+        $this->longDescriptions = $longDescriptions;
+
+        return $this;
+    }
+
+    /**
+     * Get longDescriptions
+     *
+     * @return string
+     */
+    public function getLongDescriptions()
+    {
+        return $this->longDescriptions;
+    }
+
+    /**
+     * Set postDate
+     *
+     * @param \DateTime $postDate
+     *
+     * @return Post
+     */
+    public function setPostDate($postDate)
+    {
+        $this->postDate = $postDate;
+
+        return $this;
+    }
+
+    /**
+     * Get postDate
+     *
+     * @return \DateTime
+     */
+    public function getPostDate()
+    {
+        return $this->postDate;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \BlogBundle\Entity\Comment $comment
+     *
+     * @return Post
+     */
+    public function addComment(\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comment[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \BlogBundle\Entity\Comment $comment
+     */
+    public function removeComment(\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \BlogBundle\Entity\Tag $tag
+     *
+     * @return Post
+     */
+    public function addTag(\BlogBundle\Entity\Tag $tag)
+    {
+        $this->tag[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \BlogBundle\Entity\Tag $tag
+     */
+    public function removeTag(\BlogBundle\Entity\Tag $tag)
+    {
+        $this->tag->removeElement($tag);
+    }
+
+    /**
+     * Get tag
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \BlogBundle\Entity\Category $category
+     *
+     * @return Post
+     */
+    public function setCategory(\BlogBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \BlogBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \BlogBundle\Entity\User $user
+     *
+     * @return Post
+     */
+    public function setUser(\BlogBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BlogBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -30,7 +30,7 @@
 
 
 
-php bin/console doctrine:schema:drop --force && bin/console doctrine:generate:entities BlogBundle && bin/console doctrine:schema:update --force
+php bin/console doctrine:schema:drop --force && bin/console doctrine:generate:entities BlogBundle && bin/console doctrine:schema:update --force && php bin/console doctrine:fixtures:load && php bin/console fos:user:create --super-admin
 ```
 ---
 
