@@ -2,7 +2,6 @@
 
 namespace BlogBundle\Admin;
 
-
 use Sonata\AdminBundle\Admin\AbstractAdmin as Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -28,11 +27,15 @@ class BlogPostAdmin extends Admin
             ->with('Landing Blog data', array('class' => 'col-md-3'))
             ->add('shortTitle', TextType::class)
             ->add('shortDescriptions', TextType::class)
-            ->add('tag', EntityType::class, array(
-                'class' => 'BlogBundle\Entity\Tag',
-                'multiple' => true,
-                'choice_label' => 'name',
-            ))
+            ->add(
+                'tag',
+                EntityType::class,
+                array(
+                    'class' => 'BlogBundle\Entity\Tag',
+                    'multiple' => true,
+                    'choice_label' => 'name',
+                )
+            )
             ->add(
                 'category',
                 'sonata_type_model',
@@ -54,20 +57,30 @@ class BlogPostAdmin extends Admin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('shortTitle');
-        $datagridMapper->add('shortDescriptions');
-        $datagridMapper->add('postDate');
-        $datagridMapper->add('tag');
+        $datagridMapper
+            ->add('id')
+            ->add('shortTitle')
+            ->add('shortDescriptions')
+            ->add('postDate')
+//            ->add(
+//                'tag',
+//                EntityType::class,
+//                array(
+//                    'class' => 'BlogBundle\Entity\Tag',
+//                    'choice_label' => 'name',
+//                )
+//            )
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->addIdentifier('shortTitle');
-        $listMapper->addIdentifier('shortDescriptions');
-        $listMapper->addIdentifier('postDate');
-        $listMapper->addIdentifier('tag');
+        $listMapper
+            ->addIdentifier('id')
+            ->addIdentifier('shortTitle')
+            ->addIdentifier('shortDescriptions')
+            ->addIdentifier('postDate')
+            ->addIdentifier('tag');
     }
 
     public function toString($object)

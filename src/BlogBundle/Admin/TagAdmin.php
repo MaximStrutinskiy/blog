@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use BlogBundle\Entity\Tag as Tag;
 
 class TagAdmin extends Admin
 {
@@ -17,13 +18,22 @@ class TagAdmin extends Admin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('name');
+        $datagridMapper
+            ->add('id')
+            ->add('name');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->addIdentifier('name');
+        $listMapper
+            ->addIdentifier('id')
+            ->addIdentifier('name');
+    }
+
+    public function toString($object)
+    {
+        return $object instanceof Tag
+            ? $object->getName()
+            : 'Tag'; // shown in the breadcrumb on the create view
     }
 }
