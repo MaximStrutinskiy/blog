@@ -62,15 +62,16 @@ class BlogPostAdmin extends Admin
             ->add('shortTitle')
             ->add('shortDescriptions')
             ->add('postDate')
-//            ->add(
-//                'tag',
-//                EntityType::class,
-//                array(
-//                    'class' => 'BlogBundle\Entity\Tag',
-//                    'choice_label' => 'name',
-//                )
-//            )
+//            ->add('tag') -<
         ;
+
+//  example don't work, why?
+//  $datagridMapper->add('id');
+//  $datagridMapper->add('shortTitle');
+//  $datagridMapper->add('shortDescriptions');
+//  $datagridMapper->add('postDate');
+//  $datagridMapper->add('tag', EntityType::class, array('class' => 'BlogBundle\Entity\Tag','multiple' => true,'choice_label' => 'name',));
+//   error: Catchable Fatal Error: Argument 1 passed to Symfony\Bridge\Doctrine\Form\Type\DoctrineType::__construct() must implement interface Doctrine\Common\Persistence\ManagerRegistry, none given, called in /home/maximstrutinskiy/Sites/blog-symfony/blog/var/cache/dev/classes.php on line 15686 and defined
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -80,7 +81,8 @@ class BlogPostAdmin extends Admin
             ->addIdentifier('shortTitle')
             ->addIdentifier('shortDescriptions')
             ->addIdentifier('postDate')
-            ->addIdentifier('tag');
+//            ->addIdentifier('id') -<
+        ;
     }
 
     public function toString($object)
