@@ -2,7 +2,6 @@
 
 namespace BlogBundle\Controller;
 
-
 use BlogBundle\Entity\User;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
@@ -11,7 +10,6 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-
 
 class RegistrationController extends BaseController
 {
