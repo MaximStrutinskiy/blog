@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form\DataTransformer;
+namespace BlogBundle\Forms\DataTransformer;
 
 use BlogBundle\Entity\Post;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -9,46 +9,33 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class PostToNumberTransformer implements DataTransformerInterface
 {
-    private $manager;
+    private $value;
 
-    public function __construct(ObjectManager $manager)
+    public function __construct(ObjectManager $value)
     {
-        $this->manager = $manager;
+        $this->value = $value;
     }
 
-    /**
-     * Transforms an object (post) to a string (number).
-     *
-     * @param  Post|null post
-     * @return string
-     */
-    public function transform($post)
+    public function transform($value)
     {
-        if (null === $post) {
-            return '';
+        if ($value === null) {
+            return $value;
         }
 
-        return $post->getId();
+        return new Post($value);
     }
 
-    /**
-     * Transforms a string (number) to an object (post).
-     *
-     * @param  string $postNumber
-     * @return post|null
-     * @throws TransformationFailedException if object (post) is not found.
-     */
-    public function reverseTransform($postNumber)
+    public function reverseTransform($value)
     {
         // no post number? It's optional, so that's ok
-        if (!$postNumber) {
+        if (!$value) {
             return;
         }
 
-        $post = $this->manager
+        $post = $this->value
             ->getRepository('BlogBundle:Post')
             // query for the post with this id
-            ->find($postNumber);
+            ->find($value);
 
         if (null === $post) {
             // causes a validation error
@@ -57,11 +44,11 @@ class PostToNumberTransformer implements DataTransformerInterface
             throw new TransformationFailedException(
                 sprintf(
                     'An post with number "%s" does not exist!',
-                    $postNumber
+                    $value
                 )
             );
         }
 
-        return $post;
+        return $value;
     }
 }

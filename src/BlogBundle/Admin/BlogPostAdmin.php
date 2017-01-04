@@ -2,7 +2,7 @@
 
 namespace BlogBundle\Admin;
 
-use AppBundle\Form\DataTransformer\PostToNumberTransformer;
+use BlogBundle\Forms\DataTransformer\PostToNumberTransformer as Transform;
 use Sonata\AdminBundle\Admin\AbstractAdmin as Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -48,6 +48,7 @@ class BlogPostAdmin extends Admin
             )
             ->add(
                 'postImg',
+                FileType::class,
                 array(
                     'label' => 'Upload Post img (PNG file)',
                     'required' => false,
@@ -55,9 +56,11 @@ class BlogPostAdmin extends Admin
             )
             ->end();
 
-//        $formMapper
-//            ->get('postImg')
-//            ->addModelTransformer(new PostToNumberTransformer());
+        $formMapper
+            ->get('postImg')
+            ->addModelTransformer(
+                new Transform()
+            );
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -66,8 +69,7 @@ class BlogPostAdmin extends Admin
             ->add('id')
             ->add('shortTitle')
             ->add('shortDescriptions')
-            ->add('postDate')
-//            ->add('tag') -<
+            ->add('postDate')//            ->add('tag') -<
         ;
 
 //  example don't work, why?
@@ -85,8 +87,7 @@ class BlogPostAdmin extends Admin
             ->addIdentifier('id')
             ->addIdentifier('shortTitle')
             ->addIdentifier('shortDescriptions')
-            ->addIdentifier('postDate')
-//            ->addIdentifier('id') -<
+            ->addIdentifier('postDate')//            ->addIdentifier('id') -<
         ;
     }
 
