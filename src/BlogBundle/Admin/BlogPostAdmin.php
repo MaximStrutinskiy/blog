@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Admin;
 
+use AppBundle\Form\DataTransformer\PostToNumberTransformer;
 use Sonata\AdminBundle\Admin\AbstractAdmin as Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -18,6 +19,7 @@ class BlogPostAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
+
         $formMapper
             ->with('Internal Blog data', array('class' => 'col-md-9'))
             ->add('longTitle', TextType::class)
@@ -46,13 +48,16 @@ class BlogPostAdmin extends Admin
             )
             ->add(
                 'postImg',
-                FileType::class,
                 array(
                     'label' => 'Upload Post img (PNG file)',
                     'required' => false,
                 )
             )
             ->end();
+
+//        $formMapper
+//            ->get('postImg')
+//            ->addModelTransformer(new PostToNumberTransformer());
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
