@@ -16,6 +16,7 @@ class PostToNumberTransformer implements DataTransformerInterface
         $this->value = $value;
     }
 
+
     public function transform($value)
     {
         if ($value === null) {
@@ -34,13 +35,9 @@ class PostToNumberTransformer implements DataTransformerInterface
 
         $post = $this->value
             ->getRepository('BlogBundle:Post')
-            // query for the post with this id
             ->find($value);
 
         if (null === $post) {
-            // causes a validation error
-            // this message is not shown to the user
-            // see the invalid_message option
             throw new TransformationFailedException(
                 sprintf(
                     'An post with number "%s" does not exist!',

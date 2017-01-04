@@ -14,12 +14,10 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use BlogBundle\Entity\Post as Post;
 
-
 class BlogPostAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-
         $formMapper
             ->with('Internal Blog data', array('class' => 'col-md-9'))
             ->add('longTitle', TextType::class)
