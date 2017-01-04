@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 
-class FOSUserSecurityController extends BaseController
+class SecurityController extends BaseController
 {
     /**
      * login for menu
