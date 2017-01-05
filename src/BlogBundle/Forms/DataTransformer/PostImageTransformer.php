@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 
-class PostToNumberTransformer implements DataTransformerInterface
+class PostImageTransformer implements DataTransformerInterface
 {
     private $value;
 

@@ -2,7 +2,7 @@
 
 namespace BlogBundle\Admin;
 
-use BlogBundle\Forms\DataTransformer\PostToNumberTransformer as Transform;
+use BlogBundle\Forms\DataTransformer\PostImageTransformer;
 use Sonata\AdminBundle\Admin\AbstractAdmin as Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -57,7 +57,7 @@ class BlogPostAdmin extends Admin
         $formMapper
             ->get('postImg')
             ->addModelTransformer(
-                new Transform()
+                new PostImageTransformer($this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager'))
             );
     }
 
