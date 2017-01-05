@@ -99,8 +99,8 @@ class Post
      *
      * @ORM\ManyToMany(targetEntity="Tag")
      * @ORM\JoinTable(name="post_tags",
-     *      joinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)}
+     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", unique=false)}
      *      )
      */
     protected $tag;

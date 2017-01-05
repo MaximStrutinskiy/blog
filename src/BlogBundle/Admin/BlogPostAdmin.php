@@ -67,7 +67,7 @@ class BlogPostAdmin extends Admin
             ->add('id')
             ->add('shortTitle')
             ->add('shortDescriptions')
-            ->add('postDate')//            ->add('tag') -<
+            ->add('postDate')
         ;
 
 //  example don't work, why?
