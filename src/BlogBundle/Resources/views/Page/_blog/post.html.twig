@@ -3,16 +3,18 @@
 {% block title %}/ Blog{% endblock %}
 
 {% block body_left %}
-    <div class="post-article-internal" style="padding-bottom: 20px;">
+    <div class="post-article-internal">
 
         <div class="article-date">
             <p>{{ post.postDate|date("M d") }}</p>
         </div>
 
         <div class="article-category">
-            {# add link to personal Category page #}
-            <p>{{ post.category.name }}</p>
-            {# add link to personal Category page #}
+            <p>
+                <a href="{{ path('category', {'id' : post.category.id, 'name' : post.category.name|replace ({' ': '_'})}) }}">
+                    {{ post.category.name }}
+                </a>
+            </p>
         </div>
 
         <div class="article-short-title">

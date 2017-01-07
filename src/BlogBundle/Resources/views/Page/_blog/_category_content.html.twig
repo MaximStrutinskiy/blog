@@ -1,5 +1,9 @@
 <ul class="block-category">
+    {#{{ dump() }}#}
     {% for cat in category %}
-        <li>{{ cat.name }}</li>
+        <li>
+            <a href="{{ path('category', {'id' : cat.id, 'name' : cat.name|replace ({' ': '_'})}) }}">{{ cat.name }}</a>
+        </li>
+        {# show quantity posts in category #}
     {% endfor %}
 </ul>

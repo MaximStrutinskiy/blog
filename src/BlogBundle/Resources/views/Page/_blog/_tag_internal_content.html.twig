@@ -1,0 +1,9 @@
+{% extends "BlogBundle:Page/_blog:_blog_content.html.twig" %}
+
+{% block custom %}
+    <h2>{{ tag.name }}</h2>
+    <p>Hear you can see all Post with tag {{ tag.name }}</p>
+    {% if posts is empty %}
+        No posts with this tag
+    {% endif %}
+{% endblock %}

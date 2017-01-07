@@ -1,0 +1,9 @@
+{% extends "BlogBundle:Page/_blog:_blog_content.html.twig" %}
+
+{% block custom %}
+    <h2>{{ category.name }}</h2>
+    <p>{{ category.description }}</p>
+    {% if posts is empty %}
+        No posts in this category
+    {% endif %}
+{% endblock %}

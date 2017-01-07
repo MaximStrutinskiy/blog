@@ -1,5 +1,9 @@
 <ul class="block-tags">
     {% for a in tag %}
-        <li>#{{ a.name }}</li>
+        <li>
+            <a href="{{ path('tag', {'id' : a.id, 'name' : a.name|replace ({' ': '_'})}) }}">
+                #{{ a.name }}
+            </a>
+        </li>
     {% endfor %}
 </ul>

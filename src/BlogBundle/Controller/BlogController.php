@@ -77,6 +77,33 @@ class BlogController extends Controller
     }
 
     /**
+     * show all post with category $id
+     */
+    public function showInternalCategoryAction($id)
+    {
+        $em = $this->getDoctrine();
+
+        $postRepository = $em->getRepository("BlogBundle:Post");
+        $categoryRepository = $em->getRepository("BlogBundle:Category");
+
+        $findPostsByIdCategory = array("category" => $id,);
+        $findCategoryName = array("id" => $id,);
+
+        $allPost = $postRepository->findBy($findPostsByIdCategory);
+        $oneCategory = $categoryRepository->findOneBy($findCategoryName);
+
+        $allPost = array_reverse($allPost);
+
+        return $this->render(
+            "BlogBundle:Page/_blog:_category_internal.html.twig",
+            [
+                'category' => $oneCategory,
+                'posts' => $allPost,
+            ]
+        );
+    }
+
+    /**
      * =======TAG========
      */
 
@@ -93,6 +120,34 @@ class BlogController extends Controller
             'BlogBundle:Page/_blog:_tag_content.html.twig',
             [
                 'tag' => $allTag,
+            ]
+        );
+    }
+
+    /**
+     * show all post with tag $id
+     * don't work !!!!!!!!
+     */
+    public function showInternalTagAction($id)
+    {
+        $em = $this->getDoctrine();
+
+        $postRepository = $em->getRepository("BlogBundle:Post");
+        $tagRepository = $em->getRepository("BlogBundle:Tag");
+
+        $findPostsByIdTag = array("tag" => $id);
+        $findTagName = array("id" => $id);
+
+        $allPost = $postRepository->findBy($findPostsByIdTag);
+        $oneTag = $tagRepository->findOneBy($findTagName);
+
+        $allPost = array_reverse($allPost);
+
+        return $this->render(
+            "BlogBundle:Page/_blog:_tag_internal.html.twig",
+            [
+                'tag' => $oneTag,
+                'posts' => $allPost,
             ]
         );
     }

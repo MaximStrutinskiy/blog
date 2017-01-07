@@ -15,7 +15,19 @@ blog:
     defaults: { _controller: BlogBundle:Blog:home }
 
 post:
-    path: /blog/post/{id}/{shortTitle}
-    defaults: { _controller: BlogBundle:Blog:showInternalPost}
+    path:     /blog/post/{id}/{shortTitle}
+    defaults: { _controller: BlogBundle:Blog:showInternalPost }
+    requirements:
+      id: \d+
+
+category:
+    path:     /blog/category/{id}/{name}
+    defaults: { _controller: BlogBundle:Blog:showInternalCategory }
+    requirements:
+      id: \d+
+
+tag:
+    path:     /blog/tag/{id}/{name}
+    defaults: { _controller: BlogBundle:Blog:showInternalTag }
     requirements:
       id: \d+
