@@ -58,7 +58,7 @@ class BlogPostAdmin extends Admin
         $formMapper
             ->get('postImg')
             ->addModelTransformer(
-                new PostImageTransformer($this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager'))
+                new PostImageTransformer($this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager'))//fix this sheet!? can't upload image
             );
     }
 

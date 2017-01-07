@@ -3,6 +3,7 @@
 namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
 {
@@ -23,17 +24,28 @@ class BlogController extends Controller
     /**
      * show all posts
      */
-    public function showPostAction()
+    public function showPostAction(Request $request)
     {
         $em = $this->getDoctrine();
         $postRepository = $em->getRepository("BlogBundle:Post");
         $allPost = $postRepository->findAll();
         $allPost = array_reverse($allPost);
 
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $allPost,
+            $request->query->getInt('page', 1)/*page number*/,
+            $request->query->getInt('limit', 3)/*limit per page*/
+        );
+
+
         return $this->render(
             'BlogBundle:Page/_blog:_blog_content.html.twig',
             [
-                'posts' => $allPost,
+                'posts' => $result,
             ]
         );
     }
@@ -94,11 +106,18 @@ class BlogController extends Controller
 
         $allPost = array_reverse($allPost);
 
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $allPost,
+            1,
+            3
+        );
+
         return $this->render(
             "BlogBundle:Page/_blog:_category_internal.html.twig",
             [
                 'category' => $oneCategory,
-                'posts' => $allPost,
+                'posts' => $result,
             ]
         );
     }
