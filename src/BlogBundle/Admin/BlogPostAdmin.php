@@ -22,7 +22,7 @@ class BlogPostAdmin extends Admin
             ->with('Internal Blog data', array('class' => 'col-md-9'))
             ->add('longTitle', TextType::class)
             ->add('longDescriptions', TextareaType::class)
-            ->add('postDate', DateTimeType::class)
+            ->add('postDate', DateTimeType::class)// <--- add real time date !!!
             ->end()
             ->with('Landing Blog data', array('class' => 'col-md-3'))
             ->add('shortTitle', TextType::class)
@@ -94,6 +94,6 @@ class BlogPostAdmin extends Admin
     {
         return $object instanceof Post
             ? $object->getShortTitle()
-            : 'Blog Post'; // shown in the breadcrumb on the create view
+            : 'Blog Post';
     }
 }
