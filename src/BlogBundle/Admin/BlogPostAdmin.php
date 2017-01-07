@@ -22,7 +22,7 @@ class BlogPostAdmin extends Admin
             ->with('Internal Blog data', array('class' => 'col-md-9'))
             ->add('longTitle', TextType::class)
             ->add('longDescriptions', TextareaType::class)
-            ->add('postDate', DateTimeType::class)// <--- add real time date !!!
+            ->add('postDate', DateTimeType::class)
             ->end()
             ->with('Landing Blog data', array('class' => 'col-md-3'))
             ->add('shortTitle', TextType::class)

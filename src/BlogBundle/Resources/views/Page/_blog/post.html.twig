@@ -4,11 +4,9 @@
 
 {% block body_left %}
     <div class="post-article-internal">
-
         <div class="article-date">
             <p>{{ post.postDate|date("M d") }}</p>
         </div>
-
         <div class="article-category">
             <p>
                 <a href="{{ path('category', {'id' : post.category.id, 'name' : post.category.name|replace ({' ': '_'})}) }}">
@@ -16,15 +14,12 @@
                 </a>
             </p>
         </div>
-
         <div class="article-short-title">
             <p>{{ post.shortTitle }}</p>
         </div>
-
         <div class="article-short-description">
             <p>{{ post.shortDescriptions }}</p>
         </div>
-
         <div class="article-tag">
             <ul>
                 {% for tag in post.tag %}
