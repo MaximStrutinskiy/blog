@@ -13,3 +13,9 @@ info:
 blog:
     path:     /blog
     defaults: { _controller: BlogBundle:Blog:home }
+
+post:
+    path: /blog/post/{id}/{shortTitle}
+    defaults: { _controller: BlogBundle:Blog:showInternalPost}
+    requirements:
+      id: \d+

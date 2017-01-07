@@ -49,6 +49,7 @@ class BlogPostAdmin extends Admin
                 FileType::class,
                 array(
                     'label' => 'Upload Post img (PNG file)',
+                    'data_class' => null,
                     'required' => false,
                 )
             )

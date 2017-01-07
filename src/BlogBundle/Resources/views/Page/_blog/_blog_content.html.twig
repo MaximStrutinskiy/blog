@@ -1,0 +1,48 @@
+{% for post in posts %}
+
+    {#img false#}
+    <div class="post-article" style="padding-bottom: 20px;">
+
+        <div class="article-date">
+            <p>{{ post.postDate|date("M d") }}</p>
+        </div>
+
+        <div class="article-category">
+            {# add link to personal Category page #}
+            <p>{{ post.category.name }}</p>
+            {# add link to personal Category page #}
+        </div>
+
+        <div class="article-short-title">
+            <p>{{ post.shortTitle }}</p>
+        </div>
+
+        <div class="article-short-description">
+            <p>{{ post.shortDescriptions }}</p>
+        </div>
+
+        <div class="article-to-internal">
+            <p>
+                <a href="{{ path('post', {'id' : post.id, 'shortTitle' : post.shortTitle|replace ({' ': '_'})}) }}">Read
+                    more</a>
+            </p>
+        </div>
+
+        <div class="article-tag">
+            <ul>
+                {% for tag in post.tag %}
+                    {# add link to personal tag page #}
+                    <li>#{{ tag.name|join(' - ') }} {% if not loop.last %} , {% endif %} </li>
+                    {# add link to personal tag page #}
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+
+    {#image true#}
+
+{% endfor %}
+
+

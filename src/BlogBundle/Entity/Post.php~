@@ -28,10 +28,12 @@ class Post
      *     maxWidth = 3500,
      *     minHeight = 400,
      *     maxHeight = 2500,
+     *     maxSize = "5M",
      *     minWidthMessage="min width 800px.",
      *     maxWidthMessage="max width 3500px.",
      *     minHeightMessage="min height 400px.",
      *     maxHeightMessage="max height 2500px.",
+     *     maxSizeMessage = "Too big img, max size = 5M."
      * )
      */
     protected $postImg;

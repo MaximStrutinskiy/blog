@@ -20,10 +20,28 @@
     {% block fos_user_content %}
     {% endblock fos_user_content %}
 
-
 {% endblock body_user_content %}
 
-{% block body %}
+
+{% block body_left %}
+{% endblock %}
+
+{# don't overide this block ! #}
+{% block body_right %}
+    <div class="blog-item">
+        <h2>Custom search</h2>
+        search
+    </div>
+
+    <div class="blog-item">
+        <h2>Category's</h2>
+        {{ render(controller('BlogBundle:Blog:showCategory')) }}
+    </div>
+
+    <div class="blog-item">
+        <h2>Tags</h2>
+        {{ render(controller('BlogBundle:Blog:showTag')) }}
+    </div>
 {% endblock %}
 
 {% block body_bottom %}

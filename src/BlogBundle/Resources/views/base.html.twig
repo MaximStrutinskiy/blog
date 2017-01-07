@@ -15,17 +15,28 @@
 </head>
 <body>
 {#add contents#}
-    {# for mmenu #}
-    {% block body_top %}{% endblock %}
+{# for mmenu #}
+{% block body_top %}{% endblock %}
 
-    {# for content #}
-    {% block body %}{% endblock %}
+{# for preview #}
+{% block body %}{% endblock %}
 
-    {# for FosUserBundle #}
-    {% block body_user_content %}{% endblock %}
+{# for content #}
+<div id="blog_content" class="blog-content">
+    <div class="blog-content-left">
+        {% block body_left %}{% endblock %}
+    </div>
 
-    {# for footer #}
-    {% block body_bottom %}{% endblock %}
+    <div class="blog-content-right">
+        {% block body_right %}{% endblock %}
+    </div>
+</div>
+
+{# for FosUserBundle #}
+{% block body_user_content %}{% endblock %}
+
+{# for footer #}
+{% block body_bottom %}{% endblock %}
 
 {#add scripts#}
 {% include "BlogBundle:Main:_script.html.twig" %}

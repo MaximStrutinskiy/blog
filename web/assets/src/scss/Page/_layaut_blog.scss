@@ -1,0 +1,22 @@
+.blog-content {
+  @include page-container();
+
+  .blog-content-left {
+	@include span(9 of 12);
+  }
+
+  .blog-content-right {
+	@include span(last 3 of 12);
+  }
+
+  .blog-item{
+	margin-bottom: rem(20px);
+  }
+
+  @include susy-breakpoint(0 960px) {
+	.blog-content-left,
+	.blog-content-right {
+	  width: 100%;
+	}
+  }
+}
