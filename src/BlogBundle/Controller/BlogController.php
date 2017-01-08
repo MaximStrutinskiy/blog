@@ -146,16 +146,25 @@ class BlogController extends Controller
         $tagRepository = $em->getRepository("BlogBundle:Tag");
         $findTagName = array("id" => $id);
         $tagName = $tagRepository->findOneBy($findTagName);
+        $allTags = $tagRepository->findAll();
 
         $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
-        $allPostWithTag = $postRepository->findAllPostByTagQuery($id);
+        $query = $postRepository->findAllPostByTagQuery($tagName);
 
+        $paginator = $this->get('knp_paginator');
+        $request = $this->get('request_stack')->getMasterRequest();
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            3
+        );
 
         return $this->render(
             "BlogBundle:Page/_blog:_tag_internal.html.twig",
             [
+                'setTags' => $allTags,
                 'tag' => $tagName,
-                'posts' => $allPostWithTag,
+                'posts' => $result,
             ]
         );
     }

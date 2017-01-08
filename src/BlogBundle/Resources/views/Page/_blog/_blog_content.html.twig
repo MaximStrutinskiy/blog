@@ -9,13 +9,11 @@
                 <p>{{ post.postDate|date("M d") }}</p>
             </div>
             <div class="article-category">
-                {# add link to personal Category page #}
                 <p>
                     <a href="{{ path('category', {'id' : post.category.id, 'name' : post.category.name|replace ({' ': '_'})}) }}">
                         {{ post.category.name }}
                     </a>
                 </p>
-                {# add link to personal Category page #}
             </div>
             <div class="article-short-title">
                 <p>{{ post.shortTitle }}</p>
@@ -32,8 +30,9 @@
             <div class="article-tag">
                 <ul>
                     {% for tag in post.tag %}
-                        {# add link to personal tag page #}
-                        <li>#{{ tag.name|join(' - ') }} {% if not loop.last %} , {% endif %} </li>
+                        <li>
+                            <a href="{{ path('tag', {'id' : tag.id, 'name' : tag.name|replace ({' ': '_'})}) }}">#{{ tag.name|join(' - ') }} {% if not loop.last %} , {% endif %} </a>
+                        </li>
                         {# add link to personal tag page #}
                     {% endfor %}
                 </ul>
