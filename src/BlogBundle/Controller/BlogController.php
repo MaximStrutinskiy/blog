@@ -24,18 +24,19 @@ class BlogController extends Controller
      */
     public function showPostAction(Request $request)
     {
+
         $em = $this->getDoctrine();
         $postRepository = $em->getRepository("BlogBundle:Post");
         $allPost = $postRepository->findAll();
-//        $allPost = array_reverse($allPost);
+        $allPost = array_reverse($allPost);
 
         $pagination = $this->get('knp_paginator');
+        $request = $this->get('request_stack')->getMasterRequest();
         $result = $pagination->paginate(
             $allPost,
             $request->query->getInt('page', 1)/*page number*/,
             3/*limit per page*/
         );
-
 
         return $this->render(
             'BlogBundle:Page/_blog:_blog_content.html.twig',
@@ -86,12 +87,13 @@ class BlogController extends Controller
     /**
      * show all post with category $id
      */
-    public function showInternalCategoryAction($id)
+    public function showInternalCategoryAction($id, Request $request)
     {
         $em = $this->getDoctrine();
 
         $postRepository = $em->getRepository("BlogBundle:Post");
         $categoryRepository = $em->getRepository("BlogBundle:Category");
+
 
         $findPostsByIdCategory = array("category" => $id,);
         $findCategoryName = array("id" => $id,);
@@ -102,10 +104,11 @@ class BlogController extends Controller
         $allPost = array_reverse($allPost);
 
         $paginator = $this->get('knp_paginator');
+        $request = $this->get('request_stack')->getMasterRequest();
         $result = $paginator->paginate(
             $allPost,
-            1,
-            3
+            $request->query->getInt('page', 1)/*page number*/,
+            3/*limit per page*/
         );
 
         return $this->render(
