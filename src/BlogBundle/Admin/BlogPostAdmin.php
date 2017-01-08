@@ -66,12 +66,12 @@ class BlogPostAdmin extends Admin
             ->end()
         ;
 
-        $formMapper
-            ->get('postImg')
-            ->addModelTransformer(
-                new PostImageTransformer()
-            )
-        ;
+//        $formMapper
+//            ->get('postImg')
+//            ->addModelTransformer(
+//                new PostImageTransformer()
+//            )
+//        ;
 
         $formMapper
             ->get('postDate')

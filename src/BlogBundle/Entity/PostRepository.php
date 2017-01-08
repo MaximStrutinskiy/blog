@@ -40,4 +40,23 @@ class PostRepository extends EntityRepository
         return $qb->getQuery();
     }
 
+    /**
+     * @param Post
+     * @param int $idTag
+     * @return Query
+     */
+    public function findAllPostByTagQuery(Tag $idTag)
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        $qb
+            ->join('a.tag', 't')
+            ->where('t = :idTag')
+            ->orderBy('a.postDate', 'DESC')
+            ->setParameter(':idTag', $idTag)
+        ;
+
+        return $qb->getQuery();
+    }
+
 }

@@ -12,19 +12,11 @@ class PostImageTransformer implements DataTransformerInterface
 
     public function transform($img)
     {
-        if ($img !== null) {
-            $img = md5(uniqid()).'.'.$img->getExtension();
-        }
-
-        return $img;
+        return 'shalam/balam';
     }
 
     public function reverseTransform($img)
     {
-        if ($img !== null) {
-            $img = md5(uniqid()).'.'.$img->getExtension();
-        }
-
-        return $img;
+        return 'balam/shalam';
     }
 }

@@ -143,22 +143,19 @@ class BlogController extends Controller
     {
         $em = $this->getDoctrine();
 
-        $postRepository = $em->getRepository("BlogBundle:Post");
         $tagRepository = $em->getRepository("BlogBundle:Tag");
-
-        $findPostsByIdTag = array("tag" => $id);
         $findTagName = array("id" => $id);
+        $tagName = $tagRepository->findOneBy($findTagName);
 
-        $allPost = $postRepository->findBy($findPostsByIdTag);
-        $oneTag = $tagRepository->findOneBy($findTagName);
+        $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
+        $allPostWithTag = $postRepository->findAllPostByTagQuery($id);
 
-        $allPost = array_reverse($allPost);
 
         return $this->render(
             "BlogBundle:Page/_blog:_tag_internal.html.twig",
             [
-                'tag' => $oneTag,
-                'posts' => $allPost,
+                'tag' => $tagName,
+                'posts' => $allPostWithTag,
             ]
         );
     }
