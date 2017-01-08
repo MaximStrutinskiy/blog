@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin as Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,12 +20,22 @@ class BlogPostAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Internal Blog data', array('class' => 'col-md-9'))
+            ->with(
+                'Internal Blog data',
+                array('class' => 'col-md-9')
+            )
             ->add('longTitle', TextType::class)
             ->add('longDescriptions', TextareaType::class)
-            ->add('postDate', DateTimeType::class)// <--- add real time date !!!
+            ->add(
+                'postDate',
+                DateType::class,
+                array('widget' => 'single_text',)
+            )
             ->end()
-            ->with('Landing Blog data', array('class' => 'col-md-3'))
+            ->with(
+                'Landing Blog data',
+                array('class' => 'col-md-3')
+            )
             ->add('shortTitle', TextType::class)
             ->add('shortDescriptions', TextType::class)
             ->add(
@@ -58,7 +69,9 @@ class BlogPostAdmin extends Admin
         $formMapper
             ->get('postImg')
             ->addModelTransformer(
-                new PostImageTransformer($this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager'))//fix this sheet!? can't upload image
+                new PostImageTransformer(
+                    $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager')
+                )//fix this sheet!? can't upload image
             );
     }
 
@@ -68,8 +81,7 @@ class BlogPostAdmin extends Admin
             ->add('id')
             ->add('shortTitle')
             ->add('shortDescriptions')
-            ->add('postDate')
-        ;
+            ->add('postDate');
 
 //  example don't work, why?
 //  $datagridMapper->add('id');

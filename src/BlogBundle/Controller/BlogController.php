@@ -15,8 +15,6 @@ class BlogController extends Controller
         return $this->render('BlogBundle:Page/_blog:blog.html.twig');
     }
 
-
-
     /**
      * =======POST========
      */
@@ -29,16 +27,13 @@ class BlogController extends Controller
         $em = $this->getDoctrine();
         $postRepository = $em->getRepository("BlogBundle:Post");
         $allPost = $postRepository->findAll();
-        $allPost = array_reverse($allPost);
+//        $allPost = array_reverse($allPost);
 
-        /**
-         * @var $paginator \Knp\Component\Pager\Paginator
-         */
-        $paginator = $this->get('knp_paginator');
-        $result = $paginator->paginate(
+        $pagination = $this->get('knp_paginator');
+        $result = $pagination->paginate(
             $allPost,
             $request->query->getInt('page', 1)/*page number*/,
-            $request->query->getInt('limit', 3)/*limit per page*/
+            3/*limit per page*/
         );
 
 
