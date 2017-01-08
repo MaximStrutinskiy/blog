@@ -28,6 +28,10 @@ class BlogController extends Controller
         $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
         $query = $postRepository->findAllPostQuery();
 
+
+//        $breadcrumbs = $this->get('white_october_breadcrumbs');
+//        $breadcrumbs->prependNamespaceItem('subsection', 'Home', $this->get('router')->generate('blog'));
+
         $pagination = $this->get('knp_paginator');
         $request = $this->get('request_stack')->getMasterRequest();
         $result = $pagination->paginate(
@@ -39,6 +43,7 @@ class BlogController extends Controller
         return $this->render(
             'BlogBundle:Page/_blog:_blog_content.html.twig',
             [
+//                'breadcrumbs' => $breadcrumbs,
                 'posts' => $result,
             ]
         );

@@ -79,6 +79,9 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
         # ...
+sonata_admin:
+    templates:
+        edit: BlogBundle:CRUD:edit.html.twig
 
 # KnpPaginator Configuration
 knp_paginator:
@@ -101,6 +104,18 @@ knp_menu:
     templating: false
     # the renderer to use, list is also available by default
     default_renderer: twig
+
+# WhiteOctoberBreadcrumbsBundle Configuration
+white_october_breadcrumbs:
+    separator:          '/'
+    separatorClass:     'separator'
+    listId:             'wo-breadcrumbs'
+    listClass:          'breadcrumb'
+    itemClass:          ''
+    linkRel:            ''
+    locale:             ~ # defaults to null, so the default locale is used
+    translation_domain: ~ # defaults to null, so the default domain is used
+    viewTemplate:       'WhiteOctoberBreadcrumbsBundle::breadcrumbs.html.twig'
 
 # Doctrine Configuration
 doctrine:

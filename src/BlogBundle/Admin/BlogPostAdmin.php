@@ -25,7 +25,7 @@ class BlogPostAdmin extends Admin
                 array('class' => 'col-md-9')
             )
             ->add('longTitle', TextType::class)
-            ->add('longDescriptions', TextareaType::class)
+            ->add('longDescriptions', 'textarea', array('attr' => array('class' => 'ckeditor')))
             ->add(
                 'postDate',
                 NumberType::class

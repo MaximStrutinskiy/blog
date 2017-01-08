@@ -29,6 +29,9 @@ class AppKernel extends Kernel
             //KnpPaginatorBundle
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
+            //BreadcrumbsBundle
+            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
+
             //Custom Bundles
             new BlogBundle\BlogBundle(),
 

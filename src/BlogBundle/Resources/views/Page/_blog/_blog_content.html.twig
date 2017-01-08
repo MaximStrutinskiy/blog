@@ -2,6 +2,11 @@
 {% endblock %}
 
 {% block blog_content %}
+    {#<div class="navigation text-center">#}
+        {#{{ dump() }}#}
+        {#{{ wo_render_breadcrumbs({namespace: "subsection"}) }}#}
+    {#</div>#}
+
     {% for post in posts %}
         {#img false#}
         <div class="post-article">
