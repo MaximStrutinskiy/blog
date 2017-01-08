@@ -20,14 +20,16 @@ class TagAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('name');
+            ->add('name')
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('name');
+            ->addIdentifier('name')
+        ;
     }
 
     public function toString($object)

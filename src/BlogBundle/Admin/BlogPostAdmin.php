@@ -69,9 +69,7 @@ class BlogPostAdmin extends Admin
         $formMapper
             ->get('postImg')
             ->addModelTransformer(
-                new PostImageTransformer(
-                    $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager')
-                )//fix this sheet!? can't upload image
+                new PostImageTransformer()
             )
         ;
 
@@ -93,10 +91,6 @@ class BlogPostAdmin extends Admin
         ;
 
 //  example don't work, why?
-//  $datagridMapper->add('id');
-//  $datagridMapper->add('shortTitle');
-//  $datagridMapper->add('shortDescriptions');
-//  $datagridMapper->add('postDate');
 //  $datagridMapper->add('tag', EntityType::class, array('class' => 'BlogBundle\Entity\Tag','multiple' => true,'choice_label' => 'name',));
 //   error: Catchable Fatal Error: Argument 1 passed to Symfony\Bridge\Doctrine\Form\Type\DoctrineType::__construct() must implement interface Doctrine\Common\Persistence\ManagerRegistry, none given, called in /home/maximstrutinskiy/Sites/blog-symfony/blog/var/cache/dev/classes.php on line 15686 and defined
     }

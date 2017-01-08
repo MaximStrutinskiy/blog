@@ -15,7 +15,8 @@ class CategoryAdmin extends Admin
     {
         $formMapper
             ->add('name', TextType::class)
-            ->add('description', TextType::class);
+            ->add('description', TextType::class)
+        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -23,7 +24,8 @@ class CategoryAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('name')
-            ->add('description');
+            ->add('description')
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -31,7 +33,8 @@ class CategoryAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('name')
-            ->addIdentifier('description');
+            ->addIdentifier('description')
+        ;
     }
 
     public function toString($object)

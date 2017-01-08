@@ -9,43 +9,22 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class PostImageTransformer implements DataTransformerInterface
 {
-    private $om;
 
-    public function __construct(ObjectManager $om)
+    public function transform($img)
     {
-        $this->om = $om;
+        if ($img !== null) {
+            $img = md5(uniqid()).'.'.$img->getExtension();
+        }
+
+        return $img;
     }
 
-
-    public function transform($om)
+    public function reverseTransform($img)
     {
-        if ($om === null) {
-            return $om;
+        if ($img !== null) {
+            $img = md5(uniqid()).'.'.$img->getExtension();
         }
 
-        return new Post($om);
-    }
-
-    public function reverseTransform($om)
-    {
-        // no post number? It's optional, so that's ok
-        if (!$om) {
-            return;
-        }
-
-        $post = $this->om
-            ->getRepository('BlogBundle:Post')
-            ->find($om);
-
-        if (null === $post) {
-            throw new TransformationFailedException(
-                sprintf(
-                    'An post with number "%s" does not exist!',
-                    $om
-                )
-            );
-        }
-
-        return $om;
+        return $img;
     }
 }

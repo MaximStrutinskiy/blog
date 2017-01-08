@@ -16,7 +16,8 @@ class PostRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a');
 
         $qb
-            ->orderBy('a.postDate', 'DESC');
+            ->orderBy('a.postDate', 'DESC')
+        ;
 
         return $qb->getQuery();
     }
@@ -32,8 +33,9 @@ class PostRepository extends EntityRepository
 
         $qb
             ->where('a.category = :idCategory')
+            ->orderBy('a.postDate', 'DESC')
             ->setParameter('idCategory', $idCategory)
-            ->orderBy('a.postDate', 'DESC');
+        ;
 
         return $qb->getQuery();
     }
