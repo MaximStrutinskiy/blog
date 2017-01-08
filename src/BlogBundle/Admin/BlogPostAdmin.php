@@ -2,16 +2,16 @@
 
 namespace BlogBundle\Admin;
 
+use BlogBundle\Forms\DataTransformer\PostDateTransformer;
 use BlogBundle\Forms\DataTransformer\PostImageTransformer;
 use Sonata\AdminBundle\Admin\AbstractAdmin as Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use BlogBundle\Entity\Post as Post;
 
@@ -28,8 +28,7 @@ class BlogPostAdmin extends Admin
             ->add('longDescriptions', TextareaType::class)
             ->add(
                 'postDate',
-                DateType::class,
-                array('widget' => 'single_text',)
+                NumberType::class
             )
             ->end()
             ->with(
@@ -64,7 +63,8 @@ class BlogPostAdmin extends Admin
                     'required' => false,
                 )
             )
-            ->end();
+            ->end()
+        ;
 
         $formMapper
             ->get('postImg')
@@ -72,7 +72,15 @@ class BlogPostAdmin extends Admin
                 new PostImageTransformer(
                     $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager')
                 )//fix this sheet!? can't upload image
-            );
+            )
+        ;
+
+        $formMapper
+            ->get('postDate')
+            ->addModelTransformer(
+                new PostDateTransformer()
+            )
+        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -81,7 +89,8 @@ class BlogPostAdmin extends Admin
             ->add('id')
             ->add('shortTitle')
             ->add('shortDescriptions')
-            ->add('postDate');
+            ->add('postDate')
+        ;
 
 //  example don't work, why?
 //  $datagridMapper->add('id');
@@ -98,7 +107,7 @@ class BlogPostAdmin extends Admin
             ->addIdentifier('id')
             ->addIdentifier('shortTitle')
             ->addIdentifier('shortDescriptions')
-            ->addIdentifier('postDate')//            ->addIdentifier('id') -<
+            ->addIdentifier('postDate')
         ;
     }
 

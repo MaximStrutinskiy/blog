@@ -84,6 +84,9 @@ class Post
 
     /**
      * @ORM\Column(type="datetime")
+     *
+     * @Assert\DateTime()
+     * @Assert\LessThanOrEqual("now")
      */
     protected $postDate;
 
