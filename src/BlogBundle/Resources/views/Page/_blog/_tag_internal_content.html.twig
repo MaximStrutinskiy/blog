@@ -6,11 +6,9 @@
 
     <ul>
         {% for oneTag in setTags %}
-
             <li>
                 <a href="{{ path('tag', {'id' : oneTag.id, 'name' : tag.name|replace ({' ': '_'})}) }}">{{ oneTag.name|join(' - ') }} </a>
             </li>
-
         {% endfor %}
     </ul>
 

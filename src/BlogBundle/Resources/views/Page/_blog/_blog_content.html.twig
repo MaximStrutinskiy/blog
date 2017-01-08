@@ -33,7 +33,6 @@
                         <li>
                             <a href="{{ path('tag', {'id' : tag.id, 'name' : tag.name|replace ({' ': '_'})}) }}">#{{ tag.name|join(' - ') }} {% if not loop.last %} , {% endif %} </a>
                         </li>
-                        {# add link to personal tag page #}
                     {% endfor %}
                 </ul>
             </div>
