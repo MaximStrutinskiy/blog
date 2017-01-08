@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Controller;
 
+use BlogBundle\Entity\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,18 +25,15 @@ class BlogController extends Controller
      */
     public function showPostAction(Request $request)
     {
-
-        $em = $this->getDoctrine();
-        $postRepository = $em->getRepository("BlogBundle:Post");
-        $allPost = $postRepository->findAll();
-        $allPost = array_reverse($allPost);
+        $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
+        $query = $postRepository->findAllPostQuery();
 
         $pagination = $this->get('knp_paginator');
         $request = $this->get('request_stack')->getMasterRequest();
         $result = $pagination->paginate(
-            $allPost,
-            $request->query->getInt('page', 1)/*page number*/,
-            3/*limit per page*/
+            $query,
+            $request->query->getInt('page', 1),
+            3
         );
 
         return $this->render(
@@ -86,29 +84,24 @@ class BlogController extends Controller
 
     /**
      * show all post with category $id
+     * @param int $id
      */
     public function showInternalCategoryAction($id, Request $request)
     {
         $em = $this->getDoctrine();
-
-        $postRepository = $em->getRepository("BlogBundle:Post");
         $categoryRepository = $em->getRepository("BlogBundle:Category");
-
-
-        $findPostsByIdCategory = array("category" => $id,);
         $findCategoryName = array("id" => $id,);
-
-        $allPost = $postRepository->findBy($findPostsByIdCategory);
         $oneCategory = $categoryRepository->findOneBy($findCategoryName);
 
-        $allPost = array_reverse($allPost);
+        $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
+        $query = $postRepository->findAllPostByCategoryQuery($id);
 
         $paginator = $this->get('knp_paginator');
         $request = $this->get('request_stack')->getMasterRequest();
         $result = $paginator->paginate(
-            $allPost,
-            $request->query->getInt('page', 1)/*page number*/,
-            3/*limit per page*/
+            $query,
+            $request->query->getInt('page', 1),
+            3
         );
 
         return $this->render(
@@ -144,6 +137,7 @@ class BlogController extends Controller
     /**
      * show all post with tag $id
      * don't work !!!!!!!!
+     * @param int $id
      */
     public function showInternalTagAction($id)
     {
