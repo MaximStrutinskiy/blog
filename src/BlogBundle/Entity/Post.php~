@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package BlogBundle\Entity
  * @ORM\Table(name="post")
  * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="BlogBundle\Entity\PostRepository")
  **/
 class Post
 {
@@ -84,6 +85,9 @@ class Post
 
     /**
      * @ORM\Column(type="datetime")
+     *
+     * @Assert\DateTime()
+     * @Assert\LessThanOrEqual("now")
      */
     protected $postDate;
 
@@ -380,7 +384,7 @@ class Post
      * Set user
      *
      * @param \BlogBundle\Entity\User $user
-     *
+     *сфеупщ
      * @return Post
      */
     public function setUser(\BlogBundle\Entity\User $user = null)

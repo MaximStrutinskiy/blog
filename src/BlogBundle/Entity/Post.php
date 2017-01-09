@@ -384,7 +384,7 @@ class Post
      * Set user
      *
      * @param \BlogBundle\Entity\User $user
-     *
+     *сфеупщ
      * @return Post
      */
     public function setUser(\BlogBundle\Entity\User $user = null)
