@@ -31,3 +31,7 @@ tag:
     defaults: { _controller: BlogBundle:Blog:showInternalTag }
     requirements:
       id: \d+
+
+search:
+    path:     /blog/search
+    defaults: { _controller: BlogBundle:Search:search }

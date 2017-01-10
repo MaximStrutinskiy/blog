@@ -2,7 +2,6 @@
 
 namespace BlogBundle\Controller;
 
-use BlogBundle\Entity\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
