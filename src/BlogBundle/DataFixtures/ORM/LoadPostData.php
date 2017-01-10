@@ -42,7 +42,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
-                'BackEnd',
+                'WebDesign',
                 ['Grunt'],
             ],
             [
@@ -66,7 +66,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
-                'BackEnd',
+                'WebDesign',
                 ['Scss', 'Css', 'Gulp'],
             ],
             [
@@ -82,7 +82,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
-                'BackEnd',
+                'WebDesign',
                 ['Scss', 'Css'],
             ],
             [

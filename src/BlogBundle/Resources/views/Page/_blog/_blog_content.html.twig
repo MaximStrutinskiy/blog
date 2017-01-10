@@ -1,11 +1,13 @@
+{% block breadcrumbs %}
+    <div class="navigation text-center">
+        {{ wo_render_breadcrumbs() }}
+    </div>
+{% endblock %}
+
 {% block custom %}
 {% endblock %}
 
 {% block blog_content %}
-    {#<div class="navigation text-center">#}
-        {#{{ dump() }}#}
-        {#{{ wo_render_breadcrumbs({namespace: "subsection"}) }}#}
-    {#</div>#}
 
     {% for post in posts %}
         {#img false#}

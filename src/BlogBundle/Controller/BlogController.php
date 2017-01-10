@@ -28,22 +28,23 @@ class BlogController extends Controller
         $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
         $query = $postRepository->findAllPostQuery();
 
+        //breadcrumbs
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+        $breadcrumbs->addItem("Blog");
 
-//        $breadcrumbs = $this->get('white_october_breadcrumbs');
-//        $breadcrumbs->prependNamespaceItem('subsection', 'Home', $this->get('router')->generate('blog'));
-
+        //pagination
         $pagination = $this->get('knp_paginator');
         $request = $this->get('request_stack')->getMasterRequest();
         $result = $pagination->paginate(
             $query,
             $request->query->getInt('page', 1),
-            3
+            5
         );
 
         return $this->render(
             'BlogBundle:Page/_blog:_blog_content.html.twig',
             [
-//                'breadcrumbs' => $breadcrumbs,
                 'posts' => $result,
             ]
         );
@@ -57,6 +58,12 @@ class BlogController extends Controller
         $em = $this->getDoctrine();
         $postRepository = $em->getRepository("BlogBundle:Post");
         $post = $postRepository->find($id);
+
+        //breadcrumbs
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+        $breadcrumbs->addItem("Blog", $this->get("router")->generate("blog"));
+        $breadcrumbs->addItem($post->getShortTitle());
 
         return $this->render(
             "BlogBundle:Page/_blog:post.html.twig",
@@ -101,6 +108,13 @@ class BlogController extends Controller
         $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
         $query = $postRepository->findAllPostByCategoryQuery($id);
 
+        //breadcrumbs
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+        $breadcrumbs->addItem("Blog", $this->get("router")->generate("blog"));
+        $breadcrumbs->addItem($oneCategory->getName());
+
+        //paginator
         $paginator = $this->get('knp_paginator');
         $request = $this->get('request_stack')->getMasterRequest();
         $result = $paginator->paginate(
@@ -156,6 +170,13 @@ class BlogController extends Controller
         $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
         $query = $postRepository->findAllPostByTagQuery($tagName);
 
+        //breadcrumbs
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+        $breadcrumbs->addItem("Blog", $this->get("router")->generate("blog"));
+        $breadcrumbs->addItem($tagName->getName());
+
+        //pagination
         $paginator = $this->get('knp_paginator');
         $request = $this->get('request_stack')->getMasterRequest();
         $result = $paginator->paginate(

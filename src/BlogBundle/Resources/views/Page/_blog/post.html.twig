@@ -3,6 +3,10 @@
 {% block title %}/ Blog{% endblock %}
 
 {% block body_left %}
+    <div class="navigation text-center">
+        {{ wo_render_breadcrumbs() }}
+    </div>
+
     <div class="post-article-internal">
         <div class="article-date">
             <p>{{ post.postDate|date("M d") }}</p>
