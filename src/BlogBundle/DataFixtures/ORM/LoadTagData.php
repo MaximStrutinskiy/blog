@@ -12,9 +12,6 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
     {
         //add you custom Tag in $tags array
         $tags = [
-            'BackEnd',
-            'FrontEnd',
-            'WebDesign',
             'CMS',
             'JS',
             'Html',
@@ -34,7 +31,7 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($tag);
             $manager->flush();
 
-//            $this->addReference($name, $tag);
+            $this->addReference($name, $tag);
         }
     }
 

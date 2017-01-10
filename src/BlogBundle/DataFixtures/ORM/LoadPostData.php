@@ -19,11 +19,11 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quis?',
                 'BackEnd',
-                ['BackEnd', 'FrontEnd', 'WebDesign'],
+                ['Scss', 'Css'],
             ],
         ];
 
-        foreach ($postContent as list($shortTitle, $longTitle, $shortDescription, $longDescription, $category, $tagArray)) {
+        foreach ($postContent as list($shortTitle, $longTitle, $shortDescription, $longDescription, $category, $setTags)) {
             $post = new Post();
             $post->setShortTitle($shortTitle);
             $post->setLongTitle($longTitle);
@@ -31,7 +31,10 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
             $post->setLongDescriptions($longDescription);
             $post->setCategory($this->getReference($category));
 
-            $post->addTag($this->getReference($tagArray));
+
+            foreach ($setTags as $tagArray) {
+                $post->addTag($this->getReference($tagArray));
+            }
 
             $post->setPostDate(new \DateTime);
 
