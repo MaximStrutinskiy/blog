@@ -103,13 +103,12 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
             $post->setLongDescriptions($longDescription);
             $post->setCategory($this->getReference($category));
 
-
+            /**@var Post $setTags */
             foreach ($setTags as $tagArray) {
                 $post->addTag($this->getReference($tagArray));
             }
 
             $post->setPostDate(new \DateTime);
-
             $manager->persist($post);
             $manager->flush();
         }

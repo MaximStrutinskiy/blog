@@ -165,7 +165,6 @@ class BlogController extends Controller
         $findTagName = array("id" => $id);
         $tagName = $tagRepository->findOneBy($findTagName);
         $allTags = $tagRepository->findAll();
-
         $postRepository = $this->getDoctrine()->getRepository('BlogBundle:Post');
         $query = $postRepository->findAllPostByTagQuery($tagName);
 

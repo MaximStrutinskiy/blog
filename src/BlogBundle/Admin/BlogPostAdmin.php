@@ -63,22 +63,13 @@ class BlogPostAdmin extends Admin
                     'required' => false,
                 )
             )
-            ->end()
-        ;
-
-//        $formMapper
-//            ->get('postImg')
-//            ->addModelTransformer(
-//                new PostImageTransformer()
-//            )
-//        ;
+            ->end();
 
         $formMapper
             ->get('postDate')
             ->addModelTransformer(
                 new PostDateTransformer()
-            )
-        ;
+            );
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -87,12 +78,7 @@ class BlogPostAdmin extends Admin
             ->add('id')
             ->add('shortTitle')
             ->add('shortDescriptions')
-            ->add('postDate')
-        ;
-
-//  example don't work, why?
-//  $datagridMapper->add('tag', EntityType::class, array('class' => 'BlogBundle\Entity\Tag','multiple' => true,'choice_label' => 'name',));
-//   error: Catchable Fatal Error: Argument 1 passed to Symfony\Bridge\Doctrine\Form\Type\DoctrineType::__construct() must implement interface Doctrine\Common\Persistence\ManagerRegistry, none given, called in /home/maximstrutinskiy/Sites/blog-symfony/blog/var/cache/dev/classes.php on line 15686 and defined
+            ->add('postDate');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -101,8 +87,38 @@ class BlogPostAdmin extends Admin
             ->addIdentifier('id')
             ->addIdentifier('shortTitle')
             ->addIdentifier('shortDescriptions')
-            ->addIdentifier('postDate')
-        ;
+            ->addIdentifier('postDate');
+    }
+
+    /**
+     * @post Post $object
+     */
+    public function preUpdate($object)
+    {
+        $this->processImage($object);
+    }
+
+    public function prePersist($object)
+    {
+        $this->processImage($object);
+    }
+
+    private function processImage($object)
+    {
+        $img = $object->getPostImg();
+        if ($img !== null) {
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$img->getExtension();
+
+            // Move the file to the directory where brochures are stored
+            $img->move(
+                $this->getConfigurationPool()->getContainer()->getParameter('file_directory'),
+                $fileName
+            );
+            // Update the 'img' property to store the img file name
+            // instead of its contents
+            $object->setPostImg($fileName);
+        }
     }
 
     public function toString($object)
